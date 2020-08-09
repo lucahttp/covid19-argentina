@@ -1,8 +1,14 @@
-# app.pyfrom flask 
-import Flask           # import flask
-app = Flask(__name__)             # create an app instance
+from flask import Flask
+app = Flask(__name__)
 
-@app.route("/")                   # at the end point /
-def hello():                      # call method hello
-    return "Hello World!"         # which returns "hello world"if __name__ == "__main__":        # on running python app.py
-    app.run()                     # run the flask app
+
+@app.route('/')
+def hello():
+    return "Hello World!"
+
+if __name__ == '__main__':
+    app.run()
+
+
+# c:\python27\python.exe -m pip install --upgrade pip
+# c:\python38\python.exe -m pip install --upgrade pip
