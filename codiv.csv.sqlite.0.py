@@ -90,14 +90,18 @@ filename="covid_3.sql"
 
 
 
-import os,requests
-def download(url):
-    get_response = requests.get(url,stream=True)
-    file_name  = url.split("/")[-1]
-    with open(file_name, 'wb') as f:
-        for chunk in get_response.iter_content(chunk_size=1024):
-            if chunk: # filter out keep-alive new chunks
-                f.write(chunk)
+mytable='mydb'
+#Downloader
+# https://medium.com/@petehouston/download-files-with-progress-in-python-96f14f6417a2
+
+import requests
+def download(url,filefolder):
+
+    myfile = requests.get(url, allow_redirects=True)
+
+    open(filefolder, 'wb').write(myfile.content)
+    pass
+
 
 def createDB(csvpath,dbpath):
     #read the CSV
@@ -122,10 +126,13 @@ def createDB(csvpath,dbpath):
 
     #gg = pd.read_sql('DROP TABLE IF EXISTS test_0;', conn)
     #pd.read_sql_query('DROP TABLE IF EXISTS test_0;', conn)
-    df.to_sql('mydb', conn)
+    df.to_sql(mytable, conn)
     pass
 
 def onlyConnectToDB():
+    print ("we only create the connection to the DB")
+    #connect to a database
+    conn = sqlite3.connect("casoscovid19.db")
     pass
 
 
@@ -134,13 +141,26 @@ def downloadAndCreateDB():
     # https://stackoverflow.com/questions/22676/how-do-i-download-a-file-over-http-using-python
     url = "https://sisa.msal.gov.ar/datos/descargas/covid-19/files/Covid19Casos.csv"
 
-    download(url,pathtosave)
-    createDB(pathtosave)
+    import os
+    directory = './data/'
+    if not os.path.exists(directory):
+        os.makedirs(directory)
+    download(url,'./data/casoscovid19.csv')
+    createDB('./data/casoscovid19.csv',"./data/casoscovid19.db")
     pass
 
-def deleteAndRemoveDB():
+def deleteAndRemove(filePath):
+    import os
+    #filePath = '/home/somedir/Documents/python/logs';
+    # As file at filePath is deleted now, so we should check if file exists or not not before deleting them
+    if os.path.exists(filePath):
+        os.remove(filePath)
+    else:
+        print("Can not delete the file as it doesn't exists")
     pass
 
+
+filepath = './data/casoscovid19.csv'
 # test if file exist
 # https://linuxize.com/post/python-check-if-file-exists/
 import os.path
@@ -151,13 +171,17 @@ if os.path.isfile(filepath):
     # test if file pass the due date
     if CheckDueDate(getLastUpdateOfFile(filepath),"1 day at 8 pm"):
         print("pass the due date")
-        deleteAndRemoveDB()
+        deleteAndRemove('./data/casoscovid19.csv')
+        deleteAndRemove("./data/casoscovid19.db")
         downloadAndCreateDB()
         pass
     else:
-        onlyConnectToDB()
         print("not pass the due date")
         print("all okay")
+        print()
+        print ("we only create the connection to the DB")
+        #connect to a database
+        conn = sqlite3.connect("./data/casoscovid19.db")
         pass
 else:
     print ("File not exist")
@@ -165,5 +189,86 @@ else:
 
 
 
+
+# table departamentos buenos aires
+# Provincia	Casos Confirmados Totales	Recuperados	Fallecidos
+sql_string = '''
+SELECT fecha_apertura, count(*) FROM '''+mytable+''' WHERE (clasificacion_resumen="Confirmado") group by fecha_apertura  ORDER BY "fecha_apertura" DESC LIMIT 7;
+'''
+gg = pd.read_sql(sql_string, conn)
+print()
+print(gg)
+
+
+
+# table argentina
+# Provincia	Casos Confirmados Totales	Recuperados	Fallecidos
+sql_string = '''SELECT count(*) AS Total,
+    sum(case when clasificacion_resumen="Confirmado" then 1 else 0 end) AS Confirmados,
+    sum(case when clasificacion LIKE "%No Activo%" then 1 else 0 end) AS Recuperados,
+    sum(case when clasificacion = "Caso confirmado - Fallecido" then 1 else 0 end) AS Fallecidos
+FROM '''+mytable+''';
+'''
+gg = pd.read_sql(sql_string, conn)
+print()
+print(gg)
+
+# table provincias
+# Provincia	Casos Confirmados Totales	Recuperados	Fallecidos
+sql_string = '''SELECT residencia_provincia_nombre  AS Provincia,
+    count(*) AS Total,
+    sum(case when clasificacion_resumen="Confirmado" then 1 else 0 end) AS Confirmados,
+    sum(case when clasificacion LIKE "%No Activo%" then 1 else 0 end) AS Recuperados,
+    sum(case when clasificacion = "Caso confirmado - Fallecido" then 1 else 0 end) AS Fallecidos
+FROM '''+mytable+'''
+GROUP BY residencia_provincia_nombre;
+'''
+gg = pd.read_sql(sql_string, conn)
+print()
+print(gg)
+
+# table departamentos buenos aires
+# Provincia	Casos Confirmados Totales	Recuperados	Fallecidos
+sql_string = '''SELECT residencia_departamento_nombre  AS Residencia,
+    count(*) AS Total,
+    sum(case when clasificacion_resumen="Confirmado" then 1 else 0 end) AS Confirmados,
+    sum(case when clasificacion LIKE "%No Activo%" then 1 else 0 end) AS Recuperados,
+    sum(case when clasificacion = "Caso confirmado - Fallecido" then 1 else 0 end) AS Fallecidos
+FROM '''+mytable+'''
+WHERE (residencia_provincia_nombre="Buenos Aires")
+GROUP BY residencia_departamento_nombre;
+'''
+gg = pd.read_sql(sql_string, conn)
+print()
+print(gg)
+
+
+
+
+
+# table departamentos caba
+# Caba	Casos Confirmados Totales	Recuperados	Fallecidos
+
+
+"""
+SELECT count(*) FROM '''+mytable+''' WHERE (residencia_provincia_nombre="CABA" AND residencia_departamento_nombre<>"SIN ESPECIFICAR");
+SELECT fecha_apertura, count(*) FROM '''+mytable+''' WHERE (clasificacion_resumen="Confirmado") group by fecha_apertura  ORDER BY "fecha_apertura" DESC LIMIT 7;
+
+SELECT * FROM '''+mytable+''' WHERE (residencia_provincia_nombre="CABA");
+
+SELECT * FROM '''+mytable+''' WHERE (residencia_provincia_nombre="CABA" AND residencia_departamento_nombre<>"SIN ESPECIFICAR");
+"""
+sql_string = '''SELECT residencia_departamento_nombre  AS Residencia,
+    count(*) AS Total,
+    sum(case when clasificacion_resumen="Confirmado" then 1 else 0 end) AS Confirmados,
+    sum(case when clasificacion LIKE "%No Activo%" then 1 else 0 end) AS Recuperados,
+    sum(case when clasificacion = "Caso confirmado - Fallecido" then 1 else 0 end) AS Fallecidos
+FROM '''+mytable+'''
+WHERE (residencia_provincia_nombre="CABA" AND residencia_departamento_nombre<>"SIN ESPECIFICAR")
+GROUP BY residencia_departamento_nombre;
+'''
+gg = pd.read_sql(sql_string, conn)
+print()
+print(gg)
 
 
