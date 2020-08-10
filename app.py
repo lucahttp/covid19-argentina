@@ -175,14 +175,13 @@ def checkAllsGood():
             deleteAndRemove("./data/casoscovid19.db")
             downloadCSV()
             createDB('./data/casoscovid19.csv',"./data/casoscovid19.db")
-            
             conn = sqlite3.connect("./data/casoscovid19.db")
             pass
         else:
             print("not pass the due date")
             print("all okay")
             print()
-            print ("we only create the connection to the DB")
+            print("we only create the connection to the DB")
             #connect to a database
             conn = sqlite3.connect("./data/casoscovid19.db")
             pass
@@ -302,7 +301,6 @@ def datostabledepartamentoscaba():
 
 
 def totalCasosConfirmados():
-    # %%
     # https://www.geeksforgeeks.org/python-filtering-data-with-pandas-query-method/
     # importing pandas package 
     import pandas as pd 
@@ -316,9 +314,6 @@ def totalCasosConfirmados():
     # filtering with query method 
     #print(len(data.query('clasificacion_resumen =="Confirmado"', inplace = True)))
     return len(data.query('clasificacion_resumen =="Confirmado"'))
-    # display 
-    #data 
-    pass
 
 def fullreport():
     sql_string = """
@@ -379,13 +374,17 @@ y = json.loads(x)
 app = Flask(__name__)
 
 #data = 'hola : luca'
-mydata = fullreport()
 
-def make_summary():
-    data = 'hola : luca'
+def trytest(gg):
+    # some JSON:
+    x =  '{ "name":"'+str(gg)+'", "age":30, "city":"New York"}'
+    x =  '{ "name":"'+str(gg)+'"}'
+    # parse x:
+    #y = json.loads(x)
     data = y
-    return data
+    return gg
 
+mydata = str(totalCasosConfirmados())
 # Memory Usage
 
 import sys
@@ -472,6 +471,18 @@ def add_message():
     # parse file
     obj = json.loads(data)
     return obj
+
+@app.route('/test', methods=['GET', 'POST'])
+@limiter.limit("1/second", override_defaults=False)
+def testresponse():
+    data = str(mydata)
+    response = app.response_class(
+        #response=json.dumps(data),
+        response=data,
+        status=200,
+        mimetype='application/json'
+    )
+    return response
 
 
 # app.run()
