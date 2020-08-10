@@ -165,6 +165,7 @@ filepath = './data/casoscovid19.csv'
 # https://linuxize.com/post/python-check-if-file-exists/
 import os.path
 
+def checkAllsGood():
 if os.path.isfile(filepath):
     print ("File exist")
 
