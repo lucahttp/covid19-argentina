@@ -189,86 +189,123 @@ else:
 
 
 
-
-# table departamentos buenos aires
-# Provincia	Casos Confirmados Totales	Recuperados	Fallecidos
-sql_string = '''
-SELECT fecha_apertura, count(*) FROM '''+mytable+''' WHERE (clasificacion_resumen="Confirmado") group by fecha_apertura  ORDER BY "fecha_apertura" DESC LIMIT 7;
-'''
-gg = pd.read_sql(sql_string, conn)
-print()
-print(gg)
-
-
-
-# table argentina
-# Provincia	Casos Confirmados Totales	Recuperados	Fallecidos
-sql_string = '''SELECT count(*) AS Total,
-    sum(case when clasificacion_resumen="Confirmado" then 1 else 0 end) AS Confirmados,
-    sum(case when clasificacion LIKE "%No Activo%" then 1 else 0 end) AS Recuperados,
-    sum(case when clasificacion = "Caso confirmado - Fallecido" then 1 else 0 end) AS Fallecidos
-FROM '''+mytable+''';
-'''
-gg = pd.read_sql(sql_string, conn)
-print()
-print(gg)
-
-# table provincias
-# Provincia	Casos Confirmados Totales	Recuperados	Fallecidos
-sql_string = '''SELECT residencia_provincia_nombre  AS Provincia,
-    count(*) AS Total,
-    sum(case when clasificacion_resumen="Confirmado" then 1 else 0 end) AS Confirmados,
-    sum(case when clasificacion LIKE "%No Activo%" then 1 else 0 end) AS Recuperados,
-    sum(case when clasificacion = "Caso confirmado - Fallecido" then 1 else 0 end) AS Fallecidos
-FROM '''+mytable+'''
-GROUP BY residencia_provincia_nombre;
-'''
-gg = pd.read_sql(sql_string, conn)
-print()
-print(gg)
-
-# table departamentos buenos aires
-# Provincia	Casos Confirmados Totales	Recuperados	Fallecidos
-sql_string = '''SELECT residencia_departamento_nombre  AS Residencia,
-    count(*) AS Total,
-    sum(case when clasificacion_resumen="Confirmado" then 1 else 0 end) AS Confirmados,
-    sum(case when clasificacion LIKE "%No Activo%" then 1 else 0 end) AS Recuperados,
-    sum(case when clasificacion = "Caso confirmado - Fallecido" then 1 else 0 end) AS Fallecidos
-FROM '''+mytable+'''
-WHERE (residencia_provincia_nombre="Buenos Aires")
-GROUP BY residencia_departamento_nombre;
-'''
-gg = pd.read_sql(sql_string, conn)
-print()
-print(gg)
+def datosdepartamentosbuenosaires():
+    # table departamentos buenos aires
+    # Provincia	Casos Confirmados Totales	Recuperados	Fallecidos
+    sql_string = '''
+    SELECT fecha_apertura, count(*) FROM '''+mytable+''' WHERE (clasificacion_resumen="Confirmado") group by fecha_apertura  ORDER BY "fecha_apertura" DESC LIMIT 7;
+    '''
+    gg = pd.read_sql(sql_string, conn)
+    print()
+    print(gg)
+    pass
 
 
+def datostableargentina():
+    # table argentina
+    # Provincia	Casos Confirmados Totales	Recuperados	Fallecidos
+    sql_string = '''SELECT count(*) AS Total,
+        sum(case when clasificacion_resumen="Confirmado" then 1 else 0 end) AS Confirmados,
+        sum(case when clasificacion LIKE "%No Activo%" then 1 else 0 end) AS Recuperados,
+        sum(case when clasificacion = "Caso confirmado - Fallecido" then 1 else 0 end) AS Fallecidos
+    FROM '''+mytable+''';
+    '''
+    gg = pd.read_sql(sql_string, conn)
+    print()
+    print(gg)
+    pass
+
+def datostableprovincias():
+    # table provincias
+    # Provincia	Casos Confirmados Totales	Recuperados	Fallecidos
+    sql_string = '''SELECT residencia_provincia_nombre  AS Provincia,
+        count(*) AS Total,
+        sum(case when clasificacion_resumen="Confirmado" then 1 else 0 end) AS Confirmados,
+        sum(case when clasificacion LIKE "%No Activo%" then 1 else 0 end) AS Recuperados,
+        sum(case when clasificacion = "Caso confirmado - Fallecido" then 1 else 0 end) AS Fallecidos
+    FROM '''+mytable+'''
+    GROUP BY residencia_provincia_nombre;
+    '''
+    gg = pd.read_sql(sql_string, conn)
+    print()
+    print(gg)
+    pass
+
+
+def datostabledepartamentosbuenosaires():
+    # table departamentos buenos aires
+    # Provincia	Casos Confirmados Totales	Recuperados	Fallecidos
+    sql_string = '''SELECT residencia_departamento_nombre  AS Residencia,
+        count(*) AS Total,
+        sum(case when clasificacion_resumen="Confirmado" then 1 else 0 end) AS Confirmados,
+        sum(case when clasificacion LIKE "%No Activo%" then 1 else 0 end) AS Recuperados,
+        sum(case when clasificacion = "Caso confirmado - Fallecido" then 1 else 0 end) AS Fallecidos
+    FROM '''+mytable+'''
+    WHERE (residencia_provincia_nombre="Buenos Aires")
+    GROUP BY residencia_departamento_nombre;
+    '''
+    gg = pd.read_sql(sql_string, conn)
+    print()
+    print(gg)
+    pass
 
 
 
-# table departamentos caba
-# Caba	Casos Confirmados Totales	Recuperados	Fallecidos
 
 
-"""
-SELECT count(*) FROM '''+mytable+''' WHERE (residencia_provincia_nombre="CABA" AND residencia_departamento_nombre<>"SIN ESPECIFICAR");
-SELECT fecha_apertura, count(*) FROM '''+mytable+''' WHERE (clasificacion_resumen="Confirmado") group by fecha_apertura  ORDER BY "fecha_apertura" DESC LIMIT 7;
+def datostabledepartamentoscaba():
+    # table departamentos caba
+    # Caba	Casos Confirmados Totales	Recuperados	Fallecidos
 
-SELECT * FROM '''+mytable+''' WHERE (residencia_provincia_nombre="CABA");
 
-SELECT * FROM '''+mytable+''' WHERE (residencia_provincia_nombre="CABA" AND residencia_departamento_nombre<>"SIN ESPECIFICAR");
-"""
-sql_string = '''SELECT residencia_departamento_nombre  AS Residencia,
-    count(*) AS Total,
-    sum(case when clasificacion_resumen="Confirmado" then 1 else 0 end) AS Confirmados,
-    sum(case when clasificacion LIKE "%No Activo%" then 1 else 0 end) AS Recuperados,
-    sum(case when clasificacion = "Caso confirmado - Fallecido" then 1 else 0 end) AS Fallecidos
-FROM '''+mytable+'''
-WHERE (residencia_provincia_nombre="CABA" AND residencia_departamento_nombre<>"SIN ESPECIFICAR")
-GROUP BY residencia_departamento_nombre;
-'''
-gg = pd.read_sql(sql_string, conn)
-print()
-print(gg)
+    """
+    SELECT count(*) FROM '''+mytable+''' WHERE (residencia_provincia_nombre="CABA" AND residencia_departamento_nombre<>"SIN ESPECIFICAR");
+    SELECT fecha_apertura, count(*) FROM '''+mytable+''' WHERE (clasificacion_resumen="Confirmado") group by fecha_apertura  ORDER BY "fecha_apertura" DESC LIMIT 7;
+
+    SELECT * FROM '''+mytable+''' WHERE (residencia_provincia_nombre="CABA");
+
+    SELECT * FROM '''+mytable+''' WHERE (residencia_provincia_nombre="CABA" AND residencia_departamento_nombre<>"SIN ESPECIFICAR");
+    """
+    sql_string = '''SELECT residencia_departamento_nombre  AS Residencia,
+        count(*) AS Total,
+        sum(case when clasificacion_resumen="Confirmado" then 1 else 0 end) AS Confirmados,
+        sum(case when clasificacion LIKE "%No Activo%" then 1 else 0 end) AS Recuperados,
+        sum(case when clasificacion = "Caso confirmado - Fallecido" then 1 else 0 end) AS Fallecidos
+    FROM '''+mytable+'''
+    WHERE (residencia_provincia_nombre="CABA" AND residencia_departamento_nombre<>"SIN ESPECIFICAR")
+    GROUP BY residencia_departamento_nombre;
+    '''
+    gg = pd.read_sql(sql_string, conn)
+    print()
+    print(gg)
+    pass
+
+
+
+
+def fullreport():
+    sql_string = """
+    SELECT residencia_departamento_nombre  AS Residencia,residencia_provincia_nombre  AS Residencia,
+        count(*) AS Total,
+        sum(case when clasificacion_resumen="Confirmado" then 1 else 0 end) AS Confirmados,
+        sum(case when clasificacion LIKE "%No Activo%" then 1 else 0 end) AS Recuperados,
+        sum(case when clasificacion = "Caso confirmado - Fallecido" then 1 else 0 end) AS Fallecidos
+    FROM mydb
+    GROUP BY residencia_departamento_nombre
+    ORDER BY "residencia_provincia_id" ASC,"residencia_departamento_nombre" ASC,"residencia_departamento_nombre" ASC;
+    """
+    gg = pd.read_sql(sql_string, conn)
+    print()
+
+    import json
+    print(type(gg))
+    result = gg.to_json(orient="split")
+    parsed = json.loads(result)
+    #json.dumps(parsed, indent=4)  
+    #Works
+    out = json.dumps(parsed, indent=4, ensure_ascii=False)
+    #gg.to_csv('report.csv', encoding='utf-8', index=False)
+    gg.to_csv("report.csv", encoding='latin1', index=False)
+    return out
 
 
