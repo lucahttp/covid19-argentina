@@ -284,7 +284,24 @@ def datostabledepartamentoscaba():
     pass
 
 
-
+def totalCasosConfirmados():
+    # %%
+    # https://www.geeksforgeeks.org/python-filtering-data-with-pandas-query-method/
+    # importing pandas package 
+    import pandas as pd 
+    
+    # making data frame from csv file  
+    data = pd.read_csv("./data/casoscovid19.csv") 
+    
+    # replacing blank spaces with '_'  
+    data.columns =[column.replace(" ", "_") for column in data.columns] 
+    
+    # filtering with query method 
+    #print(len(data.query('clasificacion_resumen =="Confirmado"', inplace = True)))
+    return len(data.query('clasificacion_resumen =="Confirmado"'))
+    # display 
+    #data 
+    pass
 
 def fullreport():
     sql_string = """
