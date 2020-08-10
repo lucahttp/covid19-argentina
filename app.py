@@ -136,7 +136,7 @@ def onlyConnectToDB():
     pass
 
 
-def downloadAndCreateDB():
+def downloadCSV():
     #Downloader
     # https://stackoverflow.com/questions/22676/how-do-i-download-a-file-over-http-using-python
     url = "https://sisa.msal.gov.ar/datos/descargas/covid-19/files/Covid19Casos.csv"
@@ -145,8 +145,7 @@ def downloadAndCreateDB():
     directory = './data/'
     if not os.path.exists(directory):
         os.makedirs(directory)
-    download(url,'./data/casoscovid19.csv')
-    createDB('./data/casoscovid19.csv',"./data/casoscovid19.db")
+        download(url,'./data/casoscovid19.csv')
     pass
 
 def deleteAndRemove(filePath):
@@ -166,31 +165,48 @@ filepath = './data/casoscovid19.csv'
 import os.path
 
 def checkAllsGood():
-if os.path.isfile(filepath):
-    print ("File exist")
+    if os.path.isfile(filepath):
+        print ("File exist")
 
-    # test if file pass the due date
+        # test if file pass the due date
+        if CheckDueDate(getLastUpdateOfFile(filepath),"1 day at 8 pm"):
+            print("pass the due date")
+            deleteAndRemove('./data/casoscovid19.csv')
+            deleteAndRemove("./data/casoscovid19.db")
+            downloadCSV()
+            createDB('./data/casoscovid19.csv',"./data/casoscovid19.db")
+            
+            conn = sqlite3.connect("./data/casoscovid19.db")
+            pass
+        else:
+            print("not pass the due date")
+            print("all okay")
+            print()
+            print ("we only create the connection to the DB")
+            #connect to a database
+            conn = sqlite3.connect("./data/casoscovid19.db")
+            pass
+    else:
+        print ("File not exist")
+        downloadCSV()
+        createDB('./data/casoscovid19.csv',"./data/casoscovid19.db")
+        conn = sqlite3.connect("./data/casoscovid19.db")
+        pass
+    pass
+
+def workWithOnlyCSV():
     if CheckDueDate(getLastUpdateOfFile(filepath),"1 day at 8 pm"):
         print("pass the due date")
         deleteAndRemove('./data/casoscovid19.csv')
-        deleteAndRemove("./data/casoscovid19.db")
-        downloadAndCreateDB()
-        
-        conn = sqlite3.connect("./data/casoscovid19.db")
+        downloadCSV()
         pass
     else:
         print("not pass the due date")
         print("all okay")
         print()
         print ("we only create the connection to the DB")
-        #connect to a database
-        conn = sqlite3.connect("./data/casoscovid19.db")
         pass
-else:
-    print ("File not exist")
-    downloadAndCreateDB()
-    conn = sqlite3.connect("./data/casoscovid19.db")
-
+    pass
 
 
 def datosdepartamentosbuenosaires():
@@ -377,7 +393,7 @@ import resource
 
 def memory_limit():
     soft, hard = resource.getrlimit(resource.RLIMIT_AS)
-    resource.setrlimit(resource.RLIMIT_AS, (get_memory() * 1024 / 2, hard))
+    resource.setrlimit(resource.RLIMIT_AS, (get_memory() * 512 / 2, hard))
 
 def get_memory():
     with open('/proc/meminfo', 'r') as mem:
