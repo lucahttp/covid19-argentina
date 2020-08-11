@@ -455,28 +455,7 @@ def hola():
 
 
 @app.route('/')
-@limiter.limit("1/second", override_defaults=False)
 def summary():
-    data = mydata
-    response = app.response_class(
-        response=data,
-        #response=data,
-        status=200,
-        mimetype='application/json'
-    )
-    return response
-@app.route('/json', methods=['GET', 'POST'])
-@limiter.limit("1/second", override_defaults=False)
-def add_message():
-    with open('report.json', 'r') as myfile:
-        data=myfile.read()
-    # parse file
-    obj = json.loads(data)
-    return obj
-
-@app.route('/test', methods=['GET', 'POST'])
-@limiter.limit("1/second", override_defaults=False)
-def testresponse():
     data = str(mydata)
     response = app.response_class(
         #response=json.dumps(data),
@@ -486,17 +465,10 @@ def testresponse():
     )
     return response
 
-
 # app.run()
 # https://stackoverflow.com/questions/41105733/limit-ram-usage-to-python-program
 if __name__ == '__main__':
-    memory_limit() # Limitates maximun memory usage to half
-    try:
-        #main()
-        app.run(debug=True, use_reloader=True)
-    except MemoryError:
-        sys.stderr.write('\n\nERROR: Memory Exception\n')
-        sys.exit(1)
+    app.run(debug=True, use_reloader=True)
 
 
 # https://blog.miguelgrinberg.com/post/running-a-flask-application-as-a-service-with-systemd
