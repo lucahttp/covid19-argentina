@@ -19,7 +19,7 @@ def make_summary():
     data = 'hola : luca'
     return data
 
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 def summary():
     data = make_summary()
     response = app.response_class(
