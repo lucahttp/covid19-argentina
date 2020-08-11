@@ -15,8 +15,8 @@ app = Flask(__name__)
 #data = 'hola : luca'
 
 def make_summary():
-    data = 'hola : luca'
     data = y
+    data = 'hola : luca'
     return data
 
 @app.route('/')
