@@ -301,6 +301,7 @@ def datostabledepartamentoscaba():
 
 
 def totalCasosConfirmados():
+    workWithOnlyCSV()
     # https://www.geeksforgeeks.org/python-filtering-data-with-pandas-query-method/
     # importing pandas package 
     import pandas as pd 
@@ -357,6 +358,7 @@ def fullreport():
     json.dumps(parsed, indent=4)  
     #print(resultado)
     return resultado
+
 
 
 from flask import json
