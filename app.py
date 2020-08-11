@@ -21,7 +21,7 @@ def make_summary():
 
 @app.route('/')
 def summary():
-    data = fullreport()
+    data = make_summary()
     response = app.response_class(
         #response=json.dumps(data),
         response=data,
