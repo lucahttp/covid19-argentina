@@ -1,6 +1,5 @@
 from flask import json
 from flask import Flask
-from codivcsvsqlite0 import fullreport
 
 # some JSON:
 x =  '{ "name":"John", "age":30, "city":"New York"}'
