@@ -185,6 +185,18 @@ def totalCasosConfirmados():
     #print(len(data.query('clasificacion_resumen =="Confirmado"', inplace = True)))
     return len(data.query('clasificacion_resumen =="Confirmado"'))
 
+
+
+"""
+SELECT residencia_departamento_nombre  AS Residencia,residencia_provincia_nombre  AS Provincia,
+    count(*) AS Total,
+    sum(case when clasificacion_resumen="Confirmado" then 1 else 0 end) AS Confirmados,
+    sum(case when clasificacion LIKE "%No Activo%" then 1 else 0 end) AS Recuperados,
+    sum(case when clasificacion = "Caso confirmado - Fallecido" then 1 else 0 end) AS Fallecidos
+FROM mydb
+GROUP BY residencia_departamento_nombre
+ORDER BY "residencia_provincia_id" ASC,"residencia_departamento_nombre" ASC,"residencia_departamento_nombre" ASC;
+"""
 def moredata():
     workWithOnlyCSV()
     # https://www.geeksforgeeks.org/python-filtering-data-with-pandas-query-method/
@@ -212,6 +224,8 @@ x =  '{ "name":"John", "age":30, "city":"New York"}'
 
 # the result is a Python dictionary:
 
+
+workWithOnlyCSV()
 
 app = Flask(__name__)
 
