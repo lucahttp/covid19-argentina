@@ -147,30 +147,45 @@ import os.path
 def workWithOnlyCSV():
     try:
         gg = CheckDueDate(getLastUpdateOfFile(filepath),"1 day at 8 pm")
+        if gg:
+            print("pass the due date")
+            deleteAndRemove('./data/casoscovid19.csv')
+            downloadCSV()
+            pass
+        else:
+            print("not pass the due date")
+            print("all okay")
+            print()
+            print ("we only create the connection to the DB")
+            pass
         pass
     except FileNotFoundError:
         gg = False
         downloadCSV()
         pass
 
-    if gg:
-        print("pass the due date")
-        deleteAndRemove('./data/casoscovid19.csv')
-        downloadCSV()
-        pass
-    else:
-        print("not pass the due date")
-        print("all okay")
-        print()
-        print ("we only create the connection to the DB")
-        pass
-    pass
 
 
 
 
 
 def totalCasosConfirmados():
+    workWithOnlyCSV()
+    # https://www.geeksforgeeks.org/python-filtering-data-with-pandas-query-method/
+    # importing pandas package 
+    import pandas as pd 
+    
+    # making data frame from csv file  
+    data = pd.read_csv("./data/casoscovid19.csv") 
+    
+    # replacing blank spaces with '_'  
+    data.columns =[column.replace(" ", "_") for column in data.columns] 
+    
+    # filtering with query method 
+    #print(len(data.query('clasificacion_resumen =="Confirmado"', inplace = True)))
+    return len(data.query('clasificacion_resumen =="Confirmado"'))
+
+def moredata():
     workWithOnlyCSV()
     # https://www.geeksforgeeks.org/python-filtering-data-with-pandas-query-method/
     # importing pandas package 
@@ -219,6 +234,16 @@ def summary():
     )
     return response
 
+@app.route('/test', methods=['GET', 'POST'])
+def test():
+    data = moredata()
+    response = app.response_class(
+        response=json.dumps(data),
+        #response=data,
+        status=200,
+        mimetype='application/json'
+    )
+    return response
 
 # app.run()
 # https://stackoverflow.com/questions/41105733/limit-ram-usage-to-python-program
