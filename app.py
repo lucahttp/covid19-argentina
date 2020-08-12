@@ -219,8 +219,14 @@ def summary():
     )
     return response
 
+
+# app.run()
+# https://stackoverflow.com/questions/41105733/limit-ram-usage-to-python-program
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, use_reloader=True)
+
+
+# https://blog.miguelgrinberg.com/post/running-a-flask-application-as-a-service-with-systemd
 
 # c:\python27\python.exe -m pip install --upgrade pip
 # c:\python38\python.exe -m pip install --upgrade pip
