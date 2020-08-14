@@ -31,23 +31,6 @@ import sqlite3
         # create db
 
 
-class Status:
-  def __init__(self, staringstate):
-    self.state = staringstate
-
-  def getStatus(self):
-    return self.state
-
-  def setStatus(self,newStatus):
-    self.state = newStatus
-    print("new status setted")
-
-
-
-
-
-
-
 
 
 #get file date
@@ -242,58 +225,9 @@ x =  '{ "name":"John", "age":30, "city":"New York"}'
 # the result is a Python dictionary:
 
 
-# workWithOnlyCSV()
+workWithOnlyCSV()
 
 app = Flask(__name__)
-
-
-
-
-from flask import Flask
-import requests
-
-import time
-app = Flask(__name__)
-
-
-
-responsecode = Status("database not found locally")
-responsecode.getStatus()
-
-
-# Define some heavy function
-def my_func():
-    responsecode.setStatus("Process started")
-    #time.sleep(10)
-    downloadCSV()
-    responsecode.setStatus("Process finished")
-    print(responsecode.getStatus())
-
-# Async in flask
-# https://stackoverflow.com/questions/31866796/making-an-asynchronous-task-in-flask
-from multiprocessing import Process
-
-@app.route('/render/<id>', methods=['GET'])
-def render_script(id=None):
-    ...
-    heavy_process = Process(  # Create a daemonic process with heavy "my_func"
-        target=my_func,
-        daemon=True
-    )
-    heavy_process.start()
-    """
-    return Response(
-        mimetype='application/json',
-        status=200
-    )
-    """   
-    response = app.response_class(
-        response=responsecode.getStatus(),
-        #response=data,
-        status=200,
-        mimetype='application/json'
-    )
-    return response
 
 #data = 'hola : luca'
 
@@ -324,7 +258,6 @@ def test():
         mimetype='application/json'
     )
     return response
-
 
 # app.run()
 # https://stackoverflow.com/questions/41105733/limit-ram-usage-to-python-program
