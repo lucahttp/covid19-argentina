@@ -269,3 +269,4 @@ if __name__ == '__main__':
 
 # c:\python27\python.exe -m pip install --upgrade pip
 # c:\python38\python.exe -m pip install --upgrade pip
+# C:/Python38/python.exe -m pip install thread
