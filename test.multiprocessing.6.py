@@ -14,19 +14,6 @@ oldData = None
 
 
 
-def video_pause():
-    global player
-    if not player:
-        return
-    player.toggle_pause()
-
-def video_stop():
-    global player
-    if not player:
-        return
-    player.exit_omx_player()
-    player = None
-
 
 
 def myfunc():
@@ -45,8 +32,8 @@ app = Flask(__name__)
 
 
 
-@app.route('/render/<id>', methods=['POST','GET'])
-def render_script(id=None):
+@app.route('/render/', methods=['POST','GET'])
+def render_script():
     ...
     heavy_process = Process(  # Create a daemonic process with heavy "my_func"
         target=my_func,
@@ -66,9 +53,9 @@ def render_script(id=None):
 def my_func():
     time.sleep(1)
     print("Process finished")
-    setData()
-    print(g.data()+" "+g.oldData)
+    #setData()
+    print("data()oldData")
 
 if __name__=='__main__':
     #app.run(debug=True, use_reloader=True)
-    app.run()
+    app.run(debug=True, use_reloader=True)

@@ -19,15 +19,6 @@ from datetime import timedelta
 import pandas as pd
 import sqlite3
 
-from flask import Flask
-import requests
-import time
-from multiprocessing import Process
-import datetime
-from flask import g
-
-
-
 
 # check if db exist
 
@@ -419,8 +410,8 @@ covidargentina.getStatus()
 
 #print("vencido = "+str(covidargentina.CheckData()))
 
-#print()
-#print(covidargentina.moredata())
+print()
+print(covidargentina.moredata())
 
 # parse x:
 #y = json.loads(x)
@@ -429,11 +420,11 @@ covidargentina.getStatus()
 
 
 
-# covidargentina.checkAllsGood()
+covidargentina.checkAllsGood()
 print("GG")
 #covidargentina.createDB(covidargentina.csvfilepath,covidargentina.dbfilepath)
-# datosqwe = covidargentina.fullreport()
-# print(datosqwe)
+datosqwe = covidargentina.fullreport()
+print(datosqwe)
 
 def make_summary_csv():
     return covidargentina.reportcsv()
@@ -473,42 +464,6 @@ def render_script(id=None):
 #data = 'hola : luca'
 
 
-@app.route('/render/', methods=['POST','GET'])
-def script():
-    ...
-    heavy_process = Process(  # Create a daemonic process with heavy "my_func"
-        target=my_func,
-        daemon=True
-    )
-    heavy_process.start()
-
-    dataso = open('report.json')
-    response = app.response_class(
-        response=dataso.read(),
-        # response=data,
-        status=200,
-        mimetype='application/json'
-        # text/plain, text/html, text/css, text/javascript application/json 
-        # https://developer.mozilla.org/es/docs/Web/HTTP/Basics_of_HTTP/MIME_types
-    )
-    return response
-
-# Define some heavy function
-def my_func():
-    # time.sleep(1)
-    print("Download process started")
-    covidargentina.checkAllsGood()
-    print("Download process finished")
-
-    
-    print("Build DB process started")
-    covidargentina.fullreport()
-    print("Build DB  process finished")
-    #setData()
-    pass
-
-
-
 def make_summary():
     x = '{"name":"luca"}'
     x = '{"casos":'+str(covidargentina.totalCasosConfirmados())+'}'
@@ -516,13 +471,6 @@ def make_summary():
     return data
 
 
-
-
-@app.route('/preview', methods=['GET', 'POST'])
-def preview():
-    return render_template('table.html')
-
-"""
 @app.route('/', methods=['GET', 'POST'])
 def summary():
     data = make_summary()
@@ -533,17 +481,17 @@ def summary():
         mimetype='application/json'
     )
     return response
-"""
 
 
 
-"""
+
 def make_summary2():
     covidargentina.checkAllsGood()
     dato = covidargentina.fullreport()
     # x = '{"casos":'+str(covidargentina.totalCasosConfirmados())+'}'
     data = json.loads(dato)
     return data
+
 
 
 
@@ -559,7 +507,6 @@ def summary2():
     )
     return response
 
-"""
 from flask import Flask, request, send_from_directory
 # app.py
 """
@@ -575,7 +522,7 @@ def get_d3_data():
 def home():
     return send_from_directory('/', covidargentina.csvfilereport)
 """
-"""
+
 @app.route('/preview/gg/json', methods=['GET', 'POST'])
 def asd():
     f = open('report.json')
@@ -588,20 +535,22 @@ def asd():
         # https://developer.mozilla.org/es/docs/Web/HTTP/Basics_of_HTTP/MIME_types
     )
     return response
-"""
+
 
 # https://stackoverflow.com/questions/4239825/static-files-in-flask-robot-txt-sitemap-xml-mod-wsgi
-@app.route('/preview/csv', methods=['GET', 'POST'])
+@app.route('/preview/gg/csv', methods=['GET', 'POST'])
 def catch_all():
     f = open('report.csv')
     return f.read()
 
 
+@app.route('/preview')
+def preview():
+    return render_template('table.html')
 
 
 
-
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/test', methods=['GET', 'POST'])
 def test():
     covidargentina.moredata()
     data = covidargentina.getCountAllCases()
