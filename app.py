@@ -663,34 +663,6 @@ def asd():
         # https://developer.mozilla.org/es/docs/Web/HTTP/Basics_of_HTTP/MIME_types
     )
     return response
-"""
-
-# https://stackoverflow.com/questions/4239825/static-files-in-flask-robot-txt-sitemap-xml-mod-wsgi
-
-
-@app.route('/refresh/', methods=['POST', 'GET'])
-def refresh():
-    ...
-    heavy_process = Process(  # Create a daemonic process with heavy "my_func"
-        target=my_refresh,
-        daemon=True
-    )
-    heavy_process.start()
-
-    #dataso = open('report.json')
-    response = app.response_class(
-        response="please wait",
-        # response=data,
-        status=200,
-        mimetype='text/plain'
-        # text/plain, text/html, text/css, text/javascript application/json
-        # https://developer.mozilla.org/es/docs/Web/HTTP/Basics_of_HTTP/MIME_types
-    )
-    return response
-
-# Define some heavy function
-
-
 def my_refresh():
     # time.sleep(1)
     print("Refresh process started")
