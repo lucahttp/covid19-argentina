@@ -7,7 +7,7 @@ from flask import Flask, jsonify
 print(f"In flask global level: {threading.current_thread().name}")
 app = Flask(__name__)
 
-@app.route("/toy", methods=["GET"])
+@app.route("/", methods=["GET"])
 def index():
     print(f"Inside flask function: {threading.current_thread().name}")
 
@@ -24,4 +24,4 @@ async def hello():
 
 if __name__ == "__main__":
     #app.run(host="0.0.0.0", port=4567, debug=False)
-    app.run(port=4567, debug=False)
+    app.run(port=4567,debug=True, use_reloader=True)

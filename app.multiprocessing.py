@@ -10,7 +10,7 @@ from flask import Flask, request, render_template, json, jsonify, send_from_dire
 import os
 from datetime import timedelta
 import requests
-#from multiprocessing import Process
+from multiprocessing import Process
 
 
 # check if db exist
@@ -536,9 +536,13 @@ def render_script(id=None):
 
 @app.route('/render/', methods=['POST', 'GET'])
 def script():
-    thread = Thread(target=my_func)
-    thread.daemon = True
-    thread.start()
+    ...
+    heavy_process = Process(  # Create a daemonic process with heavy "my_func"
+        target=my_func,
+        daemon=True
+    )
+    heavy_process.start()
+
     dataso = open('report.json')
     response = app.response_class(
         response=dataso.read(),
@@ -549,6 +553,7 @@ def script():
         # https://developer.mozilla.org/es/docs/Web/HTTP/Basics_of_HTTP/MIME_types
     )
     return response
+
 # Define some heavy function
 
 
@@ -577,30 +582,97 @@ def preview():
     return render_template('table.html')
 
 
-# https://stackoverflow.com/questions/4239825/static-files-in-flask-robot-txt-sitemap-xml-mod-wsgi
-
-
-@app.route("/refresh")
-def index():
-    thread = Thread(target=my_refresh)
-    thread.daemon = True
-    thread.start()
-
-
-    data = {'thread_name': str(thread.name),'started': True,'Status':'please wait'}
-    
-    data = jsonify({'thread_name': str(thread.name),
-                    'started': True,
-                    'Status':'please wait'})
+"""
+@app.route('/', methods=['GET', 'POST'])
+def summary():
+    data = make_summary()
     response = app.response_class(
-        response=data,
+        response=json.dumps(data),
         # response=data,
         status=200,
         mimetype='application/json'
+    )
+    return response
+"""
+
+
+"""
+def make_summary2():
+    covidargentina.checkAllsGood()
+    dato = covidargentina.fullreport()
+    # x = '{"casos":'+str(covidargentina.totalCasosConfirmados())+'}'
+    data = json.loads(dato)
+    return data
+
+
+
+@app.route('/report', methods=['GET', 'POST'])
+def summary2():
+    data = make_summary2()
+    
+    response = app.response_class(
+        response=json.dumps(data),
+        # response=data,
+        status=200,
+        mimetype='application/json'
+    )
+    return response
+
+"""
+# app.py
+"""
+@app.route('/preview/csv')
+def get_d3_data():
+    filename = covidargentina.csvfilereport
+    #data = pd.read_csv(filename, header=0, encoding='latin1')
+    #df = pd.read_csv(filename, header=0, encoding='latin1')
+    df = pd.read_csv(filename, encoding='latin1')
+    print(df)
+    return str(df)
+@app.route('/preview/csv', methods=['GET', 'POST'])
+def home():
+    return send_from_directory('/', covidargentina.csvfilereport)
+"""
+"""
+@app.route('/preview/gg/json', methods=['GET', 'POST'])
+def asd():
+    f = open('report.json')
+    response = app.response_class(
+        response=f.read(),
+        # response=data,
+        status=200,
+        mimetype='application/json'
+        # text/plain, text/html, text/css, text/javascript application/json 
+        # https://developer.mozilla.org/es/docs/Web/HTTP/Basics_of_HTTP/MIME_types
+    )
+    return response
+"""
+
+# https://stackoverflow.com/questions/4239825/static-files-in-flask-robot-txt-sitemap-xml-mod-wsgi
+
+
+@app.route('/refresh/', methods=['POST', 'GET'])
+def refresh():
+    ...
+    heavy_process = Process(  # Create a daemonic process with heavy "my_func"
+        target=my_refresh,
+        daemon=True
+    )
+    heavy_process.start()
+
+    #dataso = open('report.json')
+    response = app.response_class(
+        response="please wait",
+        # response=data,
+        status=200,
+        mimetype='text/plain'
         # text/plain, text/html, text/css, text/javascript application/json
         # https://developer.mozilla.org/es/docs/Web/HTTP/Basics_of_HTTP/MIME_types
     )
-    return data
+    return response
+
+# Define some heavy function
+
 
 def my_refresh():
     # time.sleep(1)
@@ -619,6 +691,7 @@ def my_refresh():
     print("Refresh process finished")
     # setData()
     pass
+
 
 
 @app.route('/preview/csv', methods=['GET', 'POST'])
