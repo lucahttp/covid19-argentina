@@ -476,12 +476,12 @@ x = '{ "name":"John", "age":30, "city":"New York"}'
 
 url = "https://sisa.msal.gov.ar/datos/descargas/covid-19/files/Covid19Casos.csv"
 covidargentina = CovidData(url)
-covidargentina.getStatus()
+#covidargentina.getStatus()
 
-print("vencido = "+str(covidargentina.CheckData()))
+#print("vencido = "+str(covidargentina.CheckData()))
 #covidargentina.downloadCSV()
 # Define some heavy function
-covidargentina.checkAllsGood()
+#covidargentina.checkAllsGood()
 #covidargentina.setStatus("Process started")
 
 # print(covidargentina.getStatus())
