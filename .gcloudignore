@@ -30,5 +30,5 @@ querys/
 # Ignore everything
 *.py
 # But not these files...
-!app.py
+!main.py
 # etc...
