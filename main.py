@@ -652,7 +652,7 @@ def test():
 # https://stackoverflow.com/questions/41105733/limit-ram-usage-to-python-program
 if __name__ == '__main__':
     #app.run(debug=True, use_reloader=True)
-    app.run(host='127.0.0.1', port=80, debug=True, use_reloader=True)
+    app.run(host='127.0.0.1', port=5000, debug=True, use_reloader=True)
 
 
 # https://blog.miguelgrinberg.com/post/running-a-flask-application-as-a-service-with-systemd
@@ -662,8 +662,10 @@ if __name__ == '__main__':
 # C:/Python38/python.exe -m pip install thread
 # curl --write-out "%{http_code}\n" "https://api.ipify.org/" 
 # Test-NetConnection -ComputerName 34.82.12.150 -Port 80
+# curl --write-out "%{http_code}\n" "34.82.12.150:3306/" 
+# curl --write-out "%{http_code}\n" "http://127.0.0.1:3306/" 
 
 
-#
+# curl --write-out "%{http_code}\n" "34.82.12.150:80/"
 #
 
