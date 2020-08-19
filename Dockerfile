@@ -17,7 +17,7 @@ COPY main.py .
 CMD [ "python", "./main.py" ]
 
 
-
+EXPOSE 5000
 # FROM python:3.7-alpine as base
 # FROM base as builder
 # RUN mkdir /install

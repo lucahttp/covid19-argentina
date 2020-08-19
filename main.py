@@ -651,8 +651,8 @@ def test():
 # app.run()
 # https://stackoverflow.com/questions/41105733/limit-ram-usage-to-python-program
 if __name__ == '__main__':
-    #app.run(debug=True, use_reloader=True)
-    app.run(host='127.0.0.1', port=5000, debug=True, use_reloader=True)
+    app.run(port=5000, debug=True, use_reloader=True)
+    #app.run(host='127.0.0.1', port=5000, debug=True, use_reloader=True)
 
 
 # https://blog.miguelgrinberg.com/post/running-a-flask-application-as-a-service-with-systemd
