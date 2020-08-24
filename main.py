@@ -28,8 +28,6 @@ import requests
 # create db
 
 
-
-
 class CovidData:
     def __init__(self, url):
         self.url = url
@@ -49,8 +47,16 @@ class CovidData:
         self.conn = None
 
         # Data
-
         self.countAllCases = None
+
+        # Flags
+        self.flag_downloading = False
+
+        self.flag_download_current = 0
+        self.flag_download_total = 0
+        self.flag_download_percent = 0
+
+        self.flag_creating = False
 
     def getCountAllCases(self):
         return self.countAllCases
@@ -97,8 +103,8 @@ class CovidData:
         # print(mydate)
         #print("the date of the file date is: " + str(datetime.datetime.fromtimestamp(mydate)))
 
-        from tabulate import tabulate
-        print(tabulate([['2020-08-14 16:36:08','2020-08-15 20:00:00','2020-08-14 19:15:00'], []], headers=["File Date", "File Expiration Date","Current Date"]))
+        # from tabulate import tabulate
+        # print(tabulate([['2020-08-14 16:36:08','2020-08-15 20:00:00','2020-08-14 19:15:00'], []], headers=["File Date", "File Expiration Date","Current Date"]))
 
         myInputDate = datetime.datetime.fromtimestamp(mydate)
 
@@ -125,10 +131,20 @@ class CovidData:
 
     # import requests
     def download(self, url, filefolder):
+        import wget
         print("Download started")
-        myfile = requests.get(url, allow_redirects=True)
+        #myfile = requests.get(url, allow_redirects=True)
 
-        open(filefolder, 'wb').write(myfile.content)
+        def bar_custom(current, total, width=80):
+            self.flag_download_current = current
+            self.flag_download_total = total
+            self.flag_download_percent = current / total * 100
+            print("Downloading: %d%% [%d / %d] bytes" %
+                  (current / total * 100, current, total))
+
+        #wget.download(url, bar=bar_custom)
+        wget.download(url, filefolder, bar=bar_custom)
+        #open(filefolder, 'wb').write(myfile.content)
         print("Download finished")
         pass
 
@@ -137,12 +153,22 @@ class CovidData:
         # https://stackoverflow.com/questions/22676/how-do-i-download-a-file-over-http-using-python
         print("Downloader")
         import os
-        if not os.path.exists(self.directory):
-            os.makedirs(self.directory)
-            self.download(self.url, self.csvfilepath)
+
+        if self.flag_downloading == False:
+            self.flag_downloading = True
+
+            if not os.path.exists(self.directory):
+                os.makedirs(self.directory)
+                self.download(self.url, self.csvfilepath)
+                pass
+            else:
+                self.download(self.url, self.csvfilepath)
+                pass
+
+            self.flag_downloading = False
             pass
         else:
-            self.download(self.url, self.csvfilepath)
+            print("Is already downloading")
             pass
 
     def deleteAndRemove(self, filetopath):
@@ -195,8 +221,9 @@ class CovidData:
         pass
 
     def CheckData(self):
-        try:        
-            result = self.CheckDueDate(self.getLastUpdateOfFile(self.csvfilepath), "1 day at 8 pm")
+        try:
+            result = self.CheckDueDate(self.getLastUpdateOfFile(
+                self.csvfilepath), "1 day at 8 pm")
             return result
         except FileNotFoundError:
             print("No funciona")
@@ -211,7 +238,6 @@ class CovidData:
             """
             pass
 
-
     def checkAllsGood(self):
         if os.path.isfile(self.csvfilepath):
             print("File exist")
@@ -219,11 +245,18 @@ class CovidData:
             # test if file pass the due date
             if self.CheckDueDate(self.getLastUpdateOfFile(self.csvfilepath), "1 day at 8 pm"):
                 print("pass the due date")
-                self.deleteAndRemove(self.csvfilepath)
-                self.deleteAndRemove(self.dbfilepath)
-                self.downloadCSV()
-                self.createDB(self.csvfilepath, self.dbfilepath)
-                self.conn = sqlite3.connect(self.dbfilepath)
+
+                if covidargentina.flag_downloading == True:
+                    print()
+                    pass
+                else:
+                    self.deleteAndRemove(self.csvfilepath)
+                    self.deleteAndRemove(self.dbfilepath)
+                    self.downloadCSV()
+                    self.createDB(self.csvfilepath, self.dbfilepath)
+                    self.conn = sqlite3.connect(self.dbfilepath)
+                    pass
+
                 pass
             else:
                 print("not pass the due date")
@@ -241,6 +274,7 @@ class CovidData:
             self.conn = sqlite3.connect(self.dbfilepath)
             pass
         pass
+
     def superRefresh(self):
         self.deleteAndRemove(self.csvfilepath)
         self.deleteAndRemove(self.dbfilepath)
@@ -458,12 +492,12 @@ x = '{ "name":"John", "age":30, "city":"New York"}'
 
 url = "https://sisa.msal.gov.ar/datos/descargas/covid-19/files/Covid19Casos.csv"
 covidargentina = CovidData(url)
-#covidargentina.getStatus()
+# covidargentina.getStatus()
 
 #print("vencido = "+str(covidargentina.CheckData()))
-#covidargentina.downloadCSV()
+# covidargentina.downloadCSV()
 # Define some heavy function
-#covidargentina.checkAllsGood()
+# covidargentina.checkAllsGood()
 #covidargentina.setStatus("Process started")
 
 # print(covidargentina.getStatus())
@@ -492,6 +526,9 @@ print("GG")
 # datosqwe = covidargentina.fullreport()
 # print(datosqwe)
 
+def toMegabyte(number_in_bytes):
+    return round(number_in_bytes/1048576, 2)
+    return round(number_in_bytes/1048576, 2)
 
 def make_summary_csv():
     return covidargentina.reportcsv()
@@ -510,6 +547,7 @@ app = Flask(__name__, static_folder='static', static_url_path='')
 # Async in flask
 # https://stackoverflow.com/questions/31866796/making-an-asynchronous-task-in-flask
 
+
 @app.route('/test/', methods=['POST', 'GET'])
 def asdasd():
     # return Response(mimetype='application/json', status=200)
@@ -521,6 +559,7 @@ def asdasd():
         mimetype='text/plain'
     )
     return response
+
 
 @app.route('/render/<id>', methods=['GET'])
 def render_script(id=None):
@@ -545,7 +584,9 @@ def script():
     thread = Thread(target=my_func)
     thread.daemon = True
     thread.start()
+    
     dataso = open('report.json')
+
     response = app.response_class(
         response=dataso.read(),
         # response=data,
@@ -592,12 +633,12 @@ def index():
     thread.daemon = True
     thread.start()
 
+    data = {'thread_name': str(thread.name),
+            'started': True, 'Status': 'please wait'}
 
-    data = {'thread_name': str(thread.name),'started': True,'Status':'please wait'}
-    
     data = jsonify({'thread_name': str(thread.name),
                     'started': True,
-                    'Status':'please wait'})
+                    'Status': 'please wait'})
     response = app.response_class(
         response=data,
         # response=data,
@@ -608,19 +649,20 @@ def index():
     )
     return data
 
+
 def my_refresh():
     # time.sleep(1)
     print("Refresh process started")
     covidargentina.superRefresh()
-    #covidargentina.deleteAndRemove(covidargentina.csvfilepath)
-    #covidargentina.deleteAndRemove(covidargentina.dbfilepath)
+    # covidargentina.deleteAndRemove(covidargentina.csvfilepath)
+    # covidargentina.deleteAndRemove(covidargentina.dbfilepath)
     #print("Download process started")
-    #covidargentina.downloadCSV()
+    # covidargentina.downloadCSV()
     #print("Download process finished")
-    #covidargentina.checkAllsGood()
+    # covidargentina.checkAllsGood()
 
     #print("Build DB process started")
-    #covidargentina.fullreport()
+    # covidargentina.fullreport()
     #print("Build DB  process finished")
     print("Refresh process finished")
     # setData()
@@ -635,8 +677,13 @@ def catch_all():
 
 @app.route('/', methods=['GET', 'POST'])
 def test():
-    covidargentina.moredata()
-    data = covidargentina.getCountAllCases()
+    if covidargentina.flag_downloading == False:
+        covidargentina.moredata()
+        data = covidargentina.getCountAllCases()
+        pass
+    else:
+        data = {'started': True, 'Status': 'please wait downloading in progress','stats': toMegabyte(covidargentina.flag_download_percent)}
+        pass
     response = app.response_class(
         response=json.dumps(data),
         # response=data,
@@ -660,12 +707,11 @@ if __name__ == '__main__':
 # c:\python27\python.exe -m pip install --upgrade pip
 # c:\python38\python.exe -m pip install --upgrade pip
 # C:/Python38/python.exe -m pip install thread
-# curl --write-out "%{http_code}\n" "https://api.ipify.org/" 
+# curl --write-out "%{http_code}\n" "https://api.ipify.org/"
 # Test-NetConnection -ComputerName 34.82.12.150 -Port 80
-# curl --write-out "%{http_code}\n" "34.82.12.150:3306/" 
-# curl --write-out "%{http_code}\n" "http://127.0.0.1:3306/" 
+# curl --write-out "%{http_code}\n" "34.82.12.150:3306/"
+# curl --write-out "%{http_code}\n" "http://127.0.0.1:3306/"
 
 
 # curl --write-out "%{http_code}\n" "34.82.12.150:80/"
 #
-
