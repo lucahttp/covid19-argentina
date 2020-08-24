@@ -264,7 +264,17 @@ class CovidData:
                 print()
                 print("we only create the connection to the DB")
                 # connect to a database
-                self.createDB(self.csvfilepath, self.dbfilepath)
+
+                filenamepath = self.csvfilepath
+                if os.path.isfile(filenamepath):
+                    print("File exist")
+                    #filenamecontent = open(filenamepath)
+                    #dataso = filenamecontent.read()
+                else:
+                    #dataso = {'thread_name': str(thread.name),'started': True, 'Status': 'please wait'}
+                    print("File not exist")
+                    self.createDB(self.csvfilepath, self.dbfilepath)
+
                 self.conn = sqlite3.connect(self.dbfilepath)
                 pass
         else:
@@ -302,6 +312,35 @@ class CovidData:
 
     # test if file exist
     # https://linuxize.com/post/python-check-if-file-exists/
+    def makeReport(self, gg, report_name):
+        import json
+        # print(type(gg))
+        #gg = gg.set_index(0)
+        print(type(gg))
+        gg.to_csv(report_name+".csv", encoding='latin1', index=False)
+        #json.dumps(parsed, indent=4, ensure_ascii=False)
+        # gg.set_index(list(gg)[0])
+        gg = gg.set_index(gg.columns[0])
+        gg.set_index(gg.columns.tolist()[0])
+        #json.dumps(parsed, indent=4)
+
+        result = gg.to_json(orient="index")
+        parsed = json.loads(result)
+        resultado = gg.to_json(orient="index")
+        gg.to_json(report_name+".json", orient='table',
+                   force_ascii=False, indent=4)
+
+        # Works
+        #out = json.dumps(parsed, indent=4, ensure_ascii=False)
+        #gg.to_csv('report.csv', encoding='utf-8', index=False)
+
+        #result = gg.to_json(orient="index")
+
+        parsed = json.loads(result)
+
+        json.dumps(parsed, indent=4)
+        # print(resultado)
+        return resultado
 
     def workWithOnlyCSV(self):
         try:
@@ -436,33 +475,50 @@ class CovidData:
         gg = pd.read_sql(sql_string, self.conn)
         print()
 
+        return self.makeReport(gg, "fullreport")
+
+    def datostableargentina(self):
+        # table argentina
+        # Provincia	Casos Confirmados Totales	Recuperados	Fallecidos
+        sql_string = '''SELECT count(*) AS Total,
+            sum(case when clasificacion_resumen="Confirmado" then 1 else 0 end) AS Confirmados,
+            sum(case when clasificacion LIKE "%No Activo%" then 1 else 0 end) AS Recuperados,
+            sum(case when clasificacion = "Caso confirmado - Fallecido" then 1 else 0 end) AS Fallecidos
+        FROM '''+self.mytable+''';
+        '''
+        gg = pd.read_sql(sql_string, self.conn)
+        print()
+
         import json
         # print(type(gg))
         #gg = gg.set_index(0)
-        print(type(gg))
-        gg.to_csv("report.csv", encoding='latin1', index=False)
-        #json.dumps(parsed, indent=4, ensure_ascii=False)
-        # gg.set_index(list(gg)[0])
-        gg = gg.set_index(gg.columns[0])
-        gg.set_index(gg.columns.tolist()[0])
-        #json.dumps(parsed, indent=4)
+        # print(gg)
+        # print(type(gg))
+        # return gg.to_csv(encoding='latin1', index=False)
+        return self.makeReport(gg, "argentinareport")
 
-        result = gg.to_json(orient="index")
-        parsed = json.loads(result)
-        resultado = gg.to_json(orient="index")
-        gg.to_json("report.json", orient='table', force_ascii=False, indent=4)
+    def datostableprovincias(self):
+        # table provincias
+        # Provincia	Casos Confirmados Totales	Recuperados	Fallecidos
+        sql_string = '''SELECT residencia_provincia_nombre  AS Provincia,
+            count(*) AS Total,
+            sum(case when clasificacion_resumen="Confirmado" then 1 else 0 end) AS Confirmados,
+            sum(case when clasificacion LIKE "%No Activo%" then 1 else 0 end) AS Recuperados,
+            sum(case when clasificacion = "Caso confirmado - Fallecido" then 1 else 0 end) AS Fallecidos
+        FROM '''+self.mytable+'''
+        GROUP BY residencia_provincia_nombre;
+        '''
+        gg = pd.read_sql(sql_string, self.conn)
+        print()
 
-        # Works
-        #out = json.dumps(parsed, indent=4, ensure_ascii=False)
-        #gg.to_csv('report.csv', encoding='utf-8', index=False)
+        import json
+        # print(type(gg))
+        #gg = gg.set_index(0)
+        # print(gg)
+        # print(type(gg))
 
-        #result = gg.to_json(orient="index")
-
-        parsed = json.loads(result)
-
-        json.dumps(parsed, indent=4)
-        # print(resultado)
-        return resultado
+        # return gg.to_csv(encoding='latin1', index=False)
+        return self.makeReport(gg, "provinciasreport")
 
     def reportcsv(self):
         sql_string = """
@@ -520,15 +576,20 @@ covidargentina = CovidData(url)
 # the result is a Python dictionary:
 
 
-# covidargentina.checkAllsGood()
+covidargentina.checkAllsGood()
+covidargentina.datostableprovincias()
+covidargentina.datostableargentina()
 print("GG")
+
 # covidargentina.createDB(covidargentina.csvfilepath,covidargentina.dbfilepath)
 # datosqwe = covidargentina.fullreport()
 # print(datosqwe)
 
+
 def toMegabyte(number_in_bytes):
     return round(number_in_bytes/1048576, 2)
     return round(number_in_bytes/1048576, 2)
+
 
 def make_summary_csv():
     return covidargentina.reportcsv()
@@ -563,6 +624,7 @@ def asdasd():
 
 @app.route('/render/<id>', methods=['GET'])
 def render_script(id=None):
+    # https://smirnov-am.github.io/background-jobs-with-flask/
     thread = Thread(target=myfunct)
     thread.daemon = True
     thread.start()
@@ -579,16 +641,125 @@ def render_script(id=None):
 #data = 'hola : luca'
 
 
-@app.route('/render', methods=['POST', 'GET'])
+@app.route("/", defaults={'elque': None, 'como': None, })
+@app.route('/report/<elque>/<como>', methods=['POST', 'GET'])
+def reportprovincias_func(elque=None, como=None):
+
+    thread = Thread(target=my_multi_report_func, args=(elque, como))
+    #thread = Thread(target=my_reportprovincias_func)
+    thread.daemon = True
+    thread.start()
+
+    if elque == "argentina":
+        filenamepath = 'argentinareport'
+        pass
+
+    elif elque == "provincias":
+        filenamepath = 'provinciasreport'
+        pass
+
+    elif elque == "departamentos":
+        filenamepath = 'report'
+        pass
+
+    else:
+        filenamepath = 'argentinareport'
+        pass
+
+    if como == "json":
+        extencionfilename = '.json'
+        mymimetype = 'application/json'
+        pass
+
+    elif como == "csv":
+        extencionfilename = '.csv'
+        mymimetype = 'text/plain'
+        pass
+    else:
+        extencionfilename = '.json'
+        mymimetype = 'application/json'
+        pass
+
+    fullfilenamepath = filenamepath+extencionfilename
+
+    if os.path.isfile(fullfilenamepath):
+        print("File exist")
+        filenamecontent = open(fullfilenamepath)
+        dataso = filenamecontent.read()
+    else:
+        dataso = {'thread_name': str(thread.name),
+                  'started': True, 'Status': 'please wait'}
+        print("File not exist")
+
+    response = app.response_class(
+        response=dataso,
+        # response=data,
+        status=200,
+        mimetype=mymimetype
+        # text/plain, text/html, text/css, text/javascript application/json
+        # https://developer.mozilla.org/es/docs/Web/HTTP/Basics_of_HTTP/MIME_types
+    )
+    return response
+# Define some heavy function
+
+
+def my_multi_report_func(posiblefilename, extencionfilename):
+    # time.sleep(1)
+    print("Download process started")
+    covidargentina.checkAllsGood()
+    print("Download process finished")
+
+    print("Build DB process started")
+
+    if posiblefilename == "provincias":
+        covidargentina.datostableprovincias()
+        pass
+
+    elif posiblefilename == "argentina":
+        covidargentina.datostableargentina()
+        pass
+
+    elif posiblefilename == "departamentos":
+        covidargentina.fullreport()
+        pass
+    else:
+        pass
+    print("Build DB  process finished")
+    # setData()
+    pass
+
+
+def my_reportprovincias_func():
+    # time.sleep(1)
+    print("Download process started")
+    covidargentina.checkAllsGood()
+    print("Download process finished")
+
+    print("Build DB process started")
+    covidargentina.datostableprovincias()
+    print("Build DB  process finished")
+    # setData()
+    pass
+
+
+@app.route('/report', methods=['POST', 'GET'])
 def script():
     thread = Thread(target=my_func)
     thread.daemon = True
     thread.start()
-    
-    dataso = open('report.json')
+
+    filenamepath = 'report.json'
+    if os.path.isfile(filenamepath):
+        print("File exist")
+        filenamecontent = open(filenamepath)
+        dataso = filenamecontent.read()
+    else:
+        dataso = {'thread_name': str(thread.name),
+                  'started': True, 'Status': 'please wait'}
+        print("File not exist")
 
     response = app.response_class(
-        response=dataso.read(),
+        response=dataso,
         # response=data,
         status=200,
         mimetype='application/json'
@@ -682,7 +853,8 @@ def test():
         data = covidargentina.getCountAllCases()
         pass
     else:
-        data = {'started': True, 'Status': 'please wait downloading in progress','stats': toMegabyte(covidargentina.flag_download_percent)}
+        data = {'started': True, 'Status': 'please wait downloading in progress',
+                'stats': toMegabyte(covidargentina.flag_download_percent)}
         pass
     response = app.response_class(
         response=json.dumps(data),
@@ -699,6 +871,7 @@ def test():
 # https://stackoverflow.com/questions/41105733/limit-ram-usage-to-python-program
 if __name__ == '__main__':
     app.run(port=5000, debug=True, use_reloader=True)
+
     #app.run(host='127.0.0.1', port=5000, debug=True, use_reloader=True)
 
 
@@ -711,6 +884,7 @@ if __name__ == '__main__':
 # Test-NetConnection -ComputerName 34.82.12.150 -Port 80
 # curl --write-out "%{http_code}\n" "34.82.12.150:3306/"
 # curl --write-out "%{http_code}\n" "http://127.0.0.1:3306/"
+# curl --write-out "%{http_code}\n" "http://127.0.0.1:5000/"
 
 
 # curl --write-out "%{http_code}\n" "34.82.12.150:80/"

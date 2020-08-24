@@ -1,0 +1,34 @@
+{
+    "schema":{
+        "fields":[
+            {
+                "name":"Total",
+                "type":"integer"
+            },
+            {
+                "name":"Confirmados",
+                "type":"integer"
+            },
+            {
+                "name":"Recuperados",
+                "type":"integer"
+            },
+            {
+                "name":"Fallecidos",
+                "type":"integer"
+            }
+        ],
+        "primaryKey":[
+            "Total"
+        ],
+        "pandas_version":"0.20.0"
+    },
+    "data":[
+        {
+            "Total":1065029,
+            "Confirmados":342150,
+            "Recuperados":256785,
+            "Fallecidos":6986
+        }
+    ]
+}
