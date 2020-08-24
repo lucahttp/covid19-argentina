@@ -870,7 +870,8 @@ def test():
 # app.run()
 # https://stackoverflow.com/questions/41105733/limit-ram-usage-to-python-program
 if __name__ == '__main__':
-    app.run(port=5000, debug=True, use_reloader=True)
+    #app.run(port=5000, debug=True, use_reloader=True)
+    app.run(debug=True, host='0.0.0.0')
 
     #app.run(host='127.0.0.1', port=5000, debug=True, use_reloader=True)
 
@@ -884,8 +885,11 @@ if __name__ == '__main__':
 # Test-NetConnection -ComputerName 34.82.12.150 -Port 80
 # curl --write-out "%{http_code}\n" "34.82.12.150:3306/"
 # curl --write-out "%{http_code}\n" "http://127.0.0.1:3306/"
-# curl --write-out "%{http_code}\n" "http://127.0.0.1:5000/"
+# apt update && apt -y install curl && curl --write-out "%{http_code}\n" "http://127.0.0.1:5000/"
+# Test-NetConnection -ComputerName 127.0.0.1 -Port 5000
 
+# apt update && apt install curl
 
+# ping 192.168.0.59
 # curl --write-out "%{http_code}\n" "34.82.12.150:80/"
 #
