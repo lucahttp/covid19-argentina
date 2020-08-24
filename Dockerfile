@@ -1,5 +1,6 @@
 # set base image (host OS)
-FROM python:3.8
+FROM python:3.8-slim
+
 
 # set the working directory in the container
 WORKDIR /code
@@ -9,15 +10,16 @@ COPY requirements.txt .
 
 # install dependencies
 RUN pip install -r requirements.txt
+#RUN pip install --no-cache-dir -r requirements.txt
 
 # copy the content of the local src directory to the working directory
 COPY main.py .
 
+EXPOSE 5000
+
 # command to run on container start
 CMD [ "python", "./main.py" ]
 
-
-EXPOSE 5000
 # FROM python:3.7-alpine as base
 # FROM base as builder
 # RUN mkdir /install

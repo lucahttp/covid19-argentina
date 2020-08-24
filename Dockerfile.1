@@ -1,0 +1,15 @@
+FROM ubuntu:latest
+RUN apt-get update -y
+RUN apt-get install -y python-dev build-essential
+
+RUN apt-get install -y software-properties-common
+RUN apt-add-repository universe
+RUN apt-get install -y python-pip
+RUN apt-get clean -y
+RUN mkdir /app
+COPY main.py /app
+COPY requirements.txt /app
+WORKDIR /app
+RUN pip install -r requirements.txt
+ENTRYPOINT ["python"]
+CMD ["main.py"]
