@@ -265,7 +265,7 @@ class CovidData:
                 print("we only create the connection to the DB")
                 # connect to a database
 
-                filenamepath = self.csvfilepath
+                filenamepath = self.dbfilepath
                 if os.path.isfile(filenamepath):
                     print("File exist")
                     #filenamecontent = open(filenamepath)
