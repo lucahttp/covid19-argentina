@@ -241,16 +241,16 @@
             "Fallecidos":1251
         },
         {
-            "Departamento Residencia":"9 de Julio",
+            "Departamento Residencia":"25 de Mayo",
             "Provincia Residencia":"Buenos Aires",
-            "ID":"06588",
-            "ID Departamento":"588",
+            "ID":"06854",
+            "ID Departamento":"854",
             "ID Provincia":"06",
-            "Total Test":559,
-            "Confirmados":37,
-            "Recuperados":30,
-            "Activos":7,
-            "Fallecidos":2
+            "Total Test":1345,
+            "Confirmados":213,
+            "Recuperados":167,
+            "Activos":46,
+            "Fallecidos":7
         },
         {
             "Departamento Residencia":"Adolfo Gonzales Chaves",
@@ -299,30 +299,6 @@
             "Recuperados":65,
             "Activos":24,
             "Fallecidos":0
-        },
-        {
-            "Departamento Residencia":"Avellaneda",
-            "Provincia Residencia":"Buenos Aires",
-            "ID":"06035",
-            "ID Departamento":"035",
-            "ID Provincia":"06",
-            "Total Test":21463,
-            "Confirmados":9493,
-            "Recuperados":7439,
-            "Activos":2054,
-            "Fallecidos":190
-        },
-        {
-            "Departamento Residencia":"Ayacucho",
-            "Provincia Residencia":"Buenos Aires",
-            "ID":"06042",
-            "ID Departamento":"042",
-            "ID Provincia":"06",
-            "Total Test":423,
-            "Confirmados":52,
-            "Recuperados":26,
-            "Activos":26,
-            "Fallecidos":1
         },
         {
             "Departamento Residencia":"Azul",
@@ -529,6 +505,18 @@
             "Fallecidos":11
         },
         {
+            "Departamento Residencia":"Chacabuco",
+            "Provincia Residencia":"Buenos Aires",
+            "ID":"06210",
+            "ID Departamento":"210",
+            "ID Provincia":"06",
+            "Total Test":833,
+            "Confirmados":88,
+            "Recuperados":75,
+            "Activos":13,
+            "Fallecidos":3
+        },
+        {
             "Departamento Residencia":"Chascomús",
             "Provincia Residencia":"Buenos Aires",
             "ID":"06217",
@@ -721,15 +709,15 @@
             "Fallecidos":0
         },
         {
-            "Departamento Residencia":"General Belgrano",
+            "Departamento Residencia":"General Guido",
             "Provincia Residencia":"Buenos Aires",
-            "ID":"06301",
-            "ID Departamento":"301",
+            "ID":"06308",
+            "ID Departamento":"308",
             "ID Provincia":"06",
-            "Total Test":288,
-            "Confirmados":78,
-            "Recuperados":63,
-            "Activos":15,
+            "Total Test":23,
+            "Confirmados":4,
+            "Recuperados":2,
+            "Activos":2,
             "Fallecidos":0
         },
         {
@@ -1381,18 +1369,6 @@
             "Fallecidos":0
         },
         {
-            "Departamento Residencia":"Rivadavia",
-            "Provincia Residencia":"Buenos Aires",
-            "ID":"06679",
-            "ID Departamento":"679",
-            "ID Provincia":"06",
-            "Total Test":1016,
-            "Confirmados":191,
-            "Recuperados":113,
-            "Activos":78,
-            "Fallecidos":4
-        },
-        {
             "Departamento Residencia":"Rojas",
             "Provincia Residencia":"Buenos Aires",
             "ID":"06686",
@@ -1825,6 +1801,18 @@
             "Fallecidos":0
         },
         {
+            "Departamento Residencia":"La Paz",
+            "Provincia Residencia":"Catamarca",
+            "ID":"10070",
+            "ID Departamento":"070",
+            "ID Provincia":"10",
+            "Total Test":211,
+            "Confirmados":17,
+            "Recuperados":9,
+            "Activos":8,
+            "Fallecidos":0
+        },
+        {
             "Departamento Residencia":"Paclín",
             "Provincia Residencia":"Catamarca",
             "ID":"10077",
@@ -1846,6 +1834,18 @@
             "Confirmados":0,
             "Recuperados":0,
             "Activos":0,
+            "Fallecidos":0
+        },
+        {
+            "Departamento Residencia":"Santa Rosa",
+            "Provincia Residencia":"Catamarca",
+            "ID":"10098",
+            "ID Departamento":"098",
+            "ID Provincia":"10",
+            "Total Test":117,
+            "Confirmados":12,
+            "Recuperados":9,
+            "Activos":3,
             "Fallecidos":0
         },
         {
@@ -1885,6 +1885,30 @@
             "Fallecidos":0
         },
         {
+            "Departamento Residencia":"Capital",
+            "Provincia Residencia":"Córdoba",
+            "ID":"14014",
+            "ID Departamento":"014",
+            "ID Provincia":"14",
+            "Total Test":51842,
+            "Confirmados":5542,
+            "Recuperados":3564,
+            "Activos":1978,
+            "Fallecidos":99
+        },
+        {
+            "Departamento Residencia":"Colón",
+            "Provincia Residencia":"Córdoba",
+            "ID":"14021",
+            "ID Departamento":"021",
+            "ID Provincia":"14",
+            "Total Test":3495,
+            "Confirmados":358,
+            "Recuperados":240,
+            "Activos":118,
+            "Fallecidos":17
+        },
+        {
             "Departamento Residencia":"Cruz del Eje",
             "Provincia Residencia":"Córdoba",
             "ID":"14028",
@@ -1895,18 +1919,6 @@
             "Recuperados":4,
             "Activos":4,
             "Fallecidos":0
-        },
-        {
-            "Departamento Residencia":"General Roca",
-            "Provincia Residencia":"Córdoba",
-            "ID":"14035",
-            "ID Departamento":"035",
-            "ID Provincia":"14",
-            "Total Test":7228,
-            "Confirmados":2668,
-            "Recuperados":1620,
-            "Activos":1048,
-            "Fallecidos":81
         },
         {
             "Departamento Residencia":"Ischilín",
@@ -2245,18 +2257,6 @@
             "Fallecidos":0
         },
         {
-            "Departamento Residencia":"Lavalle",
-            "Provincia Residencia":"Corrientes",
-            "ID":"18091",
-            "ID Departamento":"091",
-            "ID Provincia":"18",
-            "Total Test":280,
-            "Confirmados":42,
-            "Recuperados":20,
-            "Activos":22,
-            "Fallecidos":0
-        },
-        {
             "Departamento Residencia":"Mburucuyá",
             "Provincia Residencia":"Corrientes",
             "ID":"18098",
@@ -2401,18 +2401,6 @@
             "Fallecidos":0
         },
         {
-            "Departamento Residencia":"25 de Mayo",
-            "Provincia Residencia":"Chaco",
-            "ID":"22168",
-            "ID Departamento":"168",
-            "ID Provincia":"22",
-            "Total Test":1345,
-            "Confirmados":213,
-            "Recuperados":167,
-            "Activos":46,
-            "Fallecidos":7
-        },
-        {
             "Departamento Residencia":"Bermejo",
             "Provincia Residencia":"Chaco",
             "ID":"22014",
@@ -2507,6 +2495,18 @@
             "Recuperados":26,
             "Activos":7,
             "Fallecidos":2
+        },
+        {
+            "Departamento Residencia":"Maipú",
+            "Provincia Residencia":"Chaco",
+            "ID":"22091",
+            "ID Departamento":"091",
+            "ID Provincia":"22",
+            "Total Test":2907,
+            "Confirmados":856,
+            "Recuperados":545,
+            "Activos":311,
+            "Fallecidos":21
         },
         {
             "Departamento Residencia":"Mayor Luis J. Fontana",
@@ -2677,18 +2677,6 @@
             "Fallecidos":0
         },
         {
-            "Departamento Residencia":"Rawson",
-            "Provincia Residencia":"Chubut",
-            "ID":"26077",
-            "ID Departamento":"077",
-            "ID Provincia":"26",
-            "Total Test":999,
-            "Confirmados":46,
-            "Recuperados":42,
-            "Activos":4,
-            "Fallecidos":2
-        },
-        {
             "Departamento Residencia":"Río Senguer",
             "Provincia Residencia":"Chubut",
             "ID":"26084",
@@ -2698,18 +2686,6 @@
             "Confirmados":3,
             "Recuperados":1,
             "Activos":2,
-            "Fallecidos":0
-        },
-        {
-            "Departamento Residencia":"Sarmiento",
-            "Provincia Residencia":"Chubut",
-            "ID":"26091",
-            "ID Departamento":"091",
-            "ID Provincia":"26",
-            "Total Test":124,
-            "Confirmados":6,
-            "Recuperados":3,
-            "Activos":3,
             "Fallecidos":0
         },
         {
@@ -2735,18 +2711,6 @@
             "Recuperados":0,
             "Activos":0,
             "Fallecidos":0
-        },
-        {
-            "Departamento Residencia":"Colón",
-            "Provincia Residencia":"Entre Ríos",
-            "ID":"30008",
-            "ID Departamento":"008",
-            "ID Provincia":"30",
-            "Total Test":3495,
-            "Confirmados":358,
-            "Recuperados":240,
-            "Activos":118,
-            "Fallecidos":17
         },
         {
             "Departamento Residencia":"Concordia",
@@ -3061,18 +3025,6 @@
             "Fallecidos":47
         },
         {
-            "Departamento Residencia":"General Guido",
-            "Provincia Residencia":"Jujuy",
-            "ID":"38308",
-            "ID Departamento":"308",
-            "ID Provincia":"38",
-            "Total Test":23,
-            "Confirmados":4,
-            "Recuperados":2,
-            "Activos":2,
-            "Fallecidos":0
-        },
-        {
             "Departamento Residencia":"Humahuaca",
             "Provincia Residencia":"Jujuy",
             "ID":"38028",
@@ -3119,6 +3071,18 @@
             "Recuperados":10,
             "Activos":2,
             "Fallecidos":0
+        },
+        {
+            "Departamento Residencia":"San Antonio",
+            "Provincia Residencia":"Jujuy",
+            "ID":"38056",
+            "ID Departamento":"056",
+            "ID Provincia":"38",
+            "Total Test":450,
+            "Confirmados":99,
+            "Recuperados":38,
+            "Activos":61,
+            "Fallecidos":2
         },
         {
             "Departamento Residencia":"Santa Bárbara",
@@ -3505,6 +3469,18 @@
             "Fallecidos":1
         },
         {
+            "Departamento Residencia":"General Belgrano",
+            "Provincia Residencia":"La Rioja",
+            "ID":"46063",
+            "ID Departamento":"063",
+            "ID Provincia":"46",
+            "Total Test":288,
+            "Confirmados":78,
+            "Recuperados":63,
+            "Activos":15,
+            "Fallecidos":0
+        },
+        {
             "Departamento Residencia":"General Juan F. Quiroga",
             "Provincia Residencia":"La Rioja",
             "ID":"46070",
@@ -3625,18 +3601,6 @@
             "Fallecidos":26
         },
         {
-            "Departamento Residencia":"La Paz",
-            "Provincia Residencia":"Mendoza",
-            "ID":"50042",
-            "ID Departamento":"042",
-            "ID Provincia":"50",
-            "Total Test":211,
-            "Confirmados":17,
-            "Recuperados":9,
-            "Activos":8,
-            "Fallecidos":0
-        },
-        {
             "Departamento Residencia":"Las Heras",
             "Provincia Residencia":"Mendoza",
             "ID":"50049",
@@ -3649,6 +3613,18 @@
             "Fallecidos":14
         },
         {
+            "Departamento Residencia":"Lavalle",
+            "Provincia Residencia":"Mendoza",
+            "ID":"50056",
+            "ID Departamento":"056",
+            "ID Provincia":"50",
+            "Total Test":280,
+            "Confirmados":42,
+            "Recuperados":20,
+            "Activos":22,
+            "Fallecidos":0
+        },
+        {
             "Departamento Residencia":"Luján de Cuyo",
             "Provincia Residencia":"Mendoza",
             "ID":"50063",
@@ -3659,18 +3635,6 @@
             "Recuperados":360,
             "Activos":179,
             "Fallecidos":9
-        },
-        {
-            "Departamento Residencia":"Maipú",
-            "Provincia Residencia":"Mendoza",
-            "ID":"50070",
-            "ID Departamento":"070",
-            "ID Provincia":"50",
-            "Total Test":2907,
-            "Confirmados":856,
-            "Recuperados":545,
-            "Activos":311,
-            "Fallecidos":21
         },
         {
             "Departamento Residencia":"Malargüe",
@@ -3719,18 +3683,6 @@
             "Recuperados":13,
             "Activos":80,
             "Fallecidos":2
-        },
-        {
-            "Departamento Residencia":"Santa Rosa",
-            "Provincia Residencia":"Mendoza",
-            "ID":"50112",
-            "ID Departamento":"112",
-            "ID Provincia":"50",
-            "Total Test":117,
-            "Confirmados":12,
-            "Recuperados":9,
-            "Activos":3,
-            "Fallecidos":0
         },
         {
             "Departamento Residencia":"Tunuyán",
@@ -3791,18 +3743,6 @@
             "Recuperados":0,
             "Activos":1,
             "Fallecidos":0
-        },
-        {
-            "Departamento Residencia":"Capital",
-            "Provincia Residencia":"Misiones",
-            "ID":"54028",
-            "ID Departamento":"028",
-            "ID Provincia":"54",
-            "Total Test":51842,
-            "Confirmados":5542,
-            "Recuperados":3564,
-            "Activos":1978,
-            "Fallecidos":99
         },
         {
             "Departamento Residencia":"Eldorado",
@@ -4093,6 +4033,18 @@
             "Fallecidos":0
         },
         {
+            "Departamento Residencia":"Avellaneda",
+            "Provincia Residencia":"Río Negro",
+            "ID":"62014",
+            "ID Departamento":"014",
+            "ID Provincia":"62",
+            "Total Test":21463,
+            "Confirmados":9493,
+            "Recuperados":7439,
+            "Activos":2054,
+            "Fallecidos":190
+        },
+        {
             "Departamento Residencia":"Bariloche",
             "Provincia Residencia":"Río Negro",
             "ID":"62021",
@@ -4129,6 +4081,18 @@
             "Fallecidos":1
         },
         {
+            "Departamento Residencia":"General Roca",
+            "Provincia Residencia":"Río Negro",
+            "ID":"62042",
+            "ID Departamento":"042",
+            "ID Provincia":"62",
+            "Total Test":7228,
+            "Confirmados":2668,
+            "Recuperados":1620,
+            "Activos":1048,
+            "Fallecidos":81
+        },
+        {
             "Departamento Residencia":"Pichi Mahuida",
             "Provincia Residencia":"Río Negro",
             "ID":"62063",
@@ -4151,18 +4115,6 @@
             "Recuperados":59,
             "Activos":22,
             "Fallecidos":3
-        },
-        {
-            "Departamento Residencia":"San Antonio",
-            "Provincia Residencia":"Río Negro",
-            "ID":"62077",
-            "ID Departamento":"077",
-            "ID Provincia":"62",
-            "Total Test":450,
-            "Confirmados":99,
-            "Recuperados":38,
-            "Activos":61,
-            "Fallecidos":2
         },
         {
             "Departamento Residencia":"Valcheta",
@@ -4417,6 +4369,18 @@
             "Fallecidos":0
         },
         {
+            "Departamento Residencia":"9 de Julio",
+            "Provincia Residencia":"San Juan",
+            "ID":"70063",
+            "ID Departamento":"063",
+            "ID Provincia":"70",
+            "Total Test":559,
+            "Confirmados":37,
+            "Recuperados":30,
+            "Activos":7,
+            "Fallecidos":2
+        },
+        {
             "Departamento Residencia":"Albardón",
             "Provincia Residencia":"San Juan",
             "ID":"70007",
@@ -4513,6 +4477,30 @@
             "Fallecidos":0
         },
         {
+            "Departamento Residencia":"Rawson",
+            "Provincia Residencia":"San Juan",
+            "ID":"70077",
+            "ID Departamento":"077",
+            "ID Provincia":"70",
+            "Total Test":999,
+            "Confirmados":46,
+            "Recuperados":42,
+            "Activos":4,
+            "Fallecidos":2
+        },
+        {
+            "Departamento Residencia":"Rivadavia",
+            "Provincia Residencia":"San Juan",
+            "ID":"70084",
+            "ID Departamento":"084",
+            "ID Provincia":"70",
+            "Total Test":1016,
+            "Confirmados":191,
+            "Recuperados":113,
+            "Activos":78,
+            "Fallecidos":4
+        },
+        {
             "Departamento Residencia":"Santa Lucía",
             "Provincia Residencia":"San Juan",
             "ID":"70098",
@@ -4522,6 +4510,18 @@
             "Confirmados":4,
             "Recuperados":2,
             "Activos":2,
+            "Fallecidos":0
+        },
+        {
+            "Departamento Residencia":"Sarmiento",
+            "Provincia Residencia":"San Juan",
+            "ID":"70105",
+            "ID Departamento":"105",
+            "ID Provincia":"70",
+            "Total Test":124,
+            "Confirmados":6,
+            "Recuperados":3,
+            "Activos":3,
             "Fallecidos":0
         },
         {
@@ -4561,16 +4561,16 @@
             "Fallecidos":0
         },
         {
-            "Departamento Residencia":"Chacabuco",
+            "Departamento Residencia":"Ayacucho",
             "Provincia Residencia":"San Luis",
-            "ID":"74028",
-            "ID Departamento":"028",
+            "ID":"74007",
+            "ID Departamento":"007",
             "ID Provincia":"74",
-            "Total Test":833,
-            "Confirmados":88,
-            "Recuperados":75,
-            "Activos":13,
-            "Fallecidos":3
+            "Total Test":423,
+            "Confirmados":52,
+            "Recuperados":26,
+            "Activos":26,
+            "Fallecidos":1
         },
         {
             "Departamento Residencia":"Coronel Pringles",
@@ -4607,6 +4607,18 @@
             "Recuperados":2,
             "Activos":0,
             "Fallecidos":0
+        },
+        {
+            "Departamento Residencia":"La Capital",
+            "Provincia Residencia":"San Luis",
+            "ID":"74056",
+            "ID Departamento":"056",
+            "ID Provincia":"74",
+            "Total Test":4536,
+            "Confirmados":427,
+            "Recuperados":283,
+            "Activos":144,
+            "Fallecidos":5
         },
         {
             "Departamento Residencia":"Corpen Aike",
@@ -4678,30 +4690,6 @@
             "Confirmados":7,
             "Recuperados":6,
             "Activos":1,
-            "Fallecidos":0
-        },
-        {
-            "Departamento Residencia":"Río Chico",
-            "Provincia Residencia":"Santa Cruz",
-            "ID":"78049",
-            "ID Departamento":"049",
-            "ID Provincia":"78",
-            "Total Test":515,
-            "Confirmados":23,
-            "Recuperados":6,
-            "Activos":17,
-            "Fallecidos":0
-        },
-        {
-            "Departamento Residencia":"Belgrano",
-            "Provincia Residencia":"Santa Fe",
-            "ID":"82007",
-            "ID Departamento":"007",
-            "ID Provincia":"82",
-            "Total Test":367,
-            "Confirmados":39,
-            "Recuperados":24,
-            "Activos":15,
             "Fallecidos":0
         },
         {
@@ -4787,18 +4775,6 @@
             "Recuperados":16,
             "Activos":6,
             "Fallecidos":1
-        },
-        {
-            "Departamento Residencia":"La Capital",
-            "Provincia Residencia":"Santa Fe",
-            "ID":"82063",
-            "ID Departamento":"063",
-            "ID Provincia":"82",
-            "Total Test":4536,
-            "Confirmados":427,
-            "Recuperados":283,
-            "Activos":144,
-            "Fallecidos":5
         },
         {
             "Departamento Residencia":"Las Colonias",
@@ -4918,6 +4894,18 @@
             "Confirmados":131,
             "Recuperados":73,
             "Activos":58,
+            "Fallecidos":0
+        },
+        {
+            "Departamento Residencia":"Belgrano",
+            "Provincia Residencia":"Santiago del Estero",
+            "ID":"86042",
+            "ID Departamento":"042",
+            "ID Provincia":"86",
+            "Total Test":367,
+            "Confirmados":39,
+            "Recuperados":24,
+            "Activos":15,
             "Fallecidos":0
         },
         {
@@ -5230,6 +5218,18 @@
             "Confirmados":26,
             "Recuperados":20,
             "Activos":6,
+            "Fallecidos":0
+        },
+        {
+            "Departamento Residencia":"Río Chico",
+            "Provincia Residencia":"Tucumán",
+            "ID":"90077",
+            "ID Departamento":"077",
+            "ID Provincia":"90",
+            "Total Test":515,
+            "Confirmados":23,
+            "Recuperados":6,
+            "Activos":17,
             "Fallecidos":0
         },
         {

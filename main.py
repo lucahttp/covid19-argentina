@@ -497,6 +497,32 @@ class CovidData:
         # return gg.to_csv(encoding='latin1', index=False)
         return self.makeReport(gg, "argentinareport")
 
+    def datoshistoricos(self):
+        # table argentina
+        # Provincia	Casos Confirmados Totales	Recuperados	Fallecidos
+        sql_string = '''SELECT fecha_apertura  AS "Fecha",
+            count(*) AS "Cantidad de test",
+            sum(case when clasificacion_resumen="Confirmado" then 1 else 0 end) AS Confirmados,
+            sum(case when clasificacion LIKE "%No Activo%" then 1 else 0 end) AS Recuperados,
+            (sum(case when clasificacion_resumen="Confirmado" then 1 else 0 end)-sum(case when clasificacion LIKE "%No Activo%" then 1 else 0 end))Activos,
+            sum(case when clasificacion = "Caso confirmado - Fallecido" then 1 else 0 end) AS Fallecidos
+        FROM '''+self.mytable+'''
+        GROUP BY fecha_apertura
+        ORDER BY "fecha_apertura" DESC;
+        '''
+        gg = pd.read_sql(sql_string, self.conn)
+        print()
+
+        import json
+        # print(type(gg))
+        #gg = gg.set_index(0)
+        # print(gg)
+        # print(type(gg))
+        # return gg.to_csv(encoding='latin1', index=False)
+        return self.makeReport(gg, "historicosreport")
+
+
+
     def datostableprovincias(self):
         # table provincias
         # Provincia	Casos Confirmados Totales	Recuperados	Fallecidos
@@ -659,7 +685,10 @@ def reportprovincias_func(elque=None, como=None):
         pass
 
     elif elque == "departamentos":
-        filenamepath = 'report'
+        filenamepath = 'fullreport'
+        pass
+    elif elque == "historico":
+        filenamepath = 'historicosreport'
         pass
 
     else:
@@ -721,6 +750,9 @@ def my_multi_report_func(posiblefilename, extencionfilename):
 
     elif posiblefilename == "departamentos":
         covidargentina.fullreport()
+        pass
+    elif posiblefilename == "historico":
+        covidargentina.datoshistoricos()
         pass
     else:
         pass
@@ -866,6 +898,26 @@ def test():
     )
     return response
 
+
+@app.route('/home', methods=['GET', 'POST'])
+def previewgg():
+    file = './webpage/test.3.html'
+    f = open(file)
+    return f.read()
+
+@app.route("/admin/dashboard")
+def admin_dashboard():
+    return render_template("demo-line.html")
+
+@app.route('/test/csv', methods=['GET', 'POST'])
+def asdasdasd():
+    f = open('test.csv')
+    return f.read()
+
+@app.route('/view/<file>', methods=['GET', 'POST'])
+def asdasdaasa(file = "index.html"):
+    f = open('./view/'+file)
+    return f.read()
 
 # app.run()
 # https://stackoverflow.com/questions/41105733/limit-ram-usage-to-python-program
