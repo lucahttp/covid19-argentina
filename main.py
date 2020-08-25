@@ -871,11 +871,11 @@ class CovidData:
         #companies = ["datavision","excuse me, this is a test","<YES/NO>","REQ0000000","RITM0000000","SCTASK0000000","aaaa-aa-aa a:aa:aa","BI-ITMS-DATAVISION-ACCT-MGMT"]
         companies = ["datavision","excuse me, this is a test","<YES/NO>","REQ0000000","RITM0000000","SCTASK0000000","aaaa-aa-aa a:aa:aa","BI-ITMS-DATAVISION-ACCT-MGMT"]
 
-        #page.append(companies)
+        page.append(companies)
         print(" - ")
         print(content.to_numpy())
         print(" - ")
-        page.append(content)
+        #page.append(content)
 
         # Apply styles to the example sheet
         for i in range (1, len(TabTitles)+1): 
@@ -1012,7 +1012,7 @@ covidargentina.datostableprovincias()
 covidargentina.datostableargentina()
 
 # covidargentina.CreateExample()
-covidargentina.CreateExcelFormated(covidargentina.datoshistoricos())
+#covidargentina.CreateExcelFormated(covidargentina.datoshistoricos())
 print("GG")
 
 # covidargentina.createDB(covidargentina.csvfilepath,covidargentina.dbfilepath)
