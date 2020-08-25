@@ -865,7 +865,7 @@ class CovidData:
         #Insert the example data to the example excel    
         #TabTitles = ["Assignment Group", "Free Text Field", "Done", "REQUEST", "RITM", "TASK", "DATE", "GROUP"]
         TabTitles = ["Assignment Group", "Free Text Field", "Done", "REQUEST", "RITM", "TASK", "DATE", "GROUP"]
-        #page.append(TabTitles) # write the TabTitles to the first line
+        page.append(TabTitles) # write the TabTitles to the first line
         
         #Insert the example data to the example excel
         #companies = ["datavision","excuse me, this is a test","<YES/NO>","REQ0000000","RITM0000000","SCTASK0000000","aaaa-aa-aa a:aa:aa","BI-ITMS-DATAVISION-ACCT-MGMT"]
@@ -873,7 +873,7 @@ class CovidData:
 
         page.append(companies)
         print(" - ")
-        print(content.to_numpy())
+        #print(content.to_numpy())
         print(" - ")
         #page.append(content)
 
