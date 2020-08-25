@@ -495,7 +495,8 @@ class CovidData:
         # print(gg)
         # print(type(gg))
         # return gg.to_csv(encoding='latin1', index=False)
-        return self.makeReport(gg, "argentinareport")
+        self.makeReport(gg, "argentinareport")
+        return gg
 
     def datoshistoricos(self):
         # table argentina
@@ -520,6 +521,7 @@ class CovidData:
         # print(type(gg))
         # return gg.to_csv(encoding='latin1', index=False)
         return self.makeReport(gg, "historicosreport")
+        return gg
 
 
 
@@ -544,7 +546,8 @@ class CovidData:
         # print(type(gg))
 
         # return gg.to_csv(encoding='latin1', index=False)
-        return self.makeReport(gg, "provinciasreport")
+        self.makeReport(gg, "provinciasreport")
+        return gg
 
     def reportcsv(self):
         sql_string = """
@@ -563,9 +566,411 @@ class CovidData:
         import json
         # print(type(gg))
         #gg = gg.set_index(0)
-        print(type(gg))
+        print(gg)
 
         return gg.to_csv(encoding='latin1', index=False)
+
+
+
+    ################################################################################
+    # Tool Functions                        function to use cross program
+
+    def GetRandom(self):
+        #https://docs.python.org/3/library/random.html
+        import random
+        random_number = random.randrange(0, 10000, 1)
+        self.printandlog(random_number)
+        #excelFile = "tempFile-{}.xlsx".format(str(current_time))
+        #excelFile = "tempFile-{}.xlsx".format(random_number)
+        return random_number
+
+    def getTime(self):
+        import datetime
+        x = datetime.datetime.now()
+        xs = x.strftime("%X %x")
+        datestring = str(xs)
+        datestring = datestring.replace(":","-")
+        datestring = datestring.replace("/", "-")
+        datestring = datestring.replace(" ", "--")
+        print(datestring)
+        return datestring
+
+
+
+    ################################################################################
+    #LOG                        function to log printandlogs
+
+    
+
+    def printandlog(self,text):
+        import logging
+        logging.basicConfig(filename='app.log', filemode='w', format='%(asctime)s %(message)s')
+        print(text)
+        logging.warning(text)
+        pass
+
+
+
+
+    def CreateExample(self):
+        from time import sleep
+        import datetime
+
+        # C:\Python38\python.exe -m pip install --upgrade pip
+        # C:\Python38\python.exe -m pip install openpyxl
+        # C:\Python38\python.exe -m pip install pytest
+        import pytest
+        import time
+        import json
+
+        #EXCEL
+        from openpyxl import load_workbook
+        import os
+        import sys
+        import openpyxl #Connect the library
+        from openpyxl import Workbook
+        from openpyxl.styles import PatternFill#Connect cell styles
+        from openpyxl.workbook import Workbook
+        from openpyxl.styles import Font, Fill#Connect styles for text
+        from openpyxl.styles import colors#Connect colors for text and cells
+        from openpyxl.utils import get_column_letter
+        import datetime
+        import string
+
+
+
+
+
+
+
+        ##########################################################
+        ##  Chapter One Creating the excel to fill data
+        ##########################################################
+
+
+        #https://stackabuse.com/the-python-tempfile-module/
+
+
+        tempfilename = "~tempfile.xlsx"
+
+
+        datestring = self.getTime()
+        #with io.open((path.replace("xlsx", "{}.json")).replace("xls", "{}.json").format(number,number),'w',encoding='utf8') as f:
+
+        ##tempfilename = "~tempfile{}.xlsx".format(datestring)
+
+        
+        #delete file if exist feature
+
+        if os.path.exists(tempfilename):
+            os.remove(tempfilename)
+            self.printandlog("The file was deleted")
+        else:
+            self.printandlog("The file does not exist")
+        
+
+
+        #Styles
+        tabColor_text = Font(size=11, underline='none', color = 'ffffffff', bold=False, italic=False) #what color = colors.RED — color prescribed in styles
+        tabColor_cell = PatternFill(fill_type='solid', start_color='00000000', end_color='00000000')#This code allows you to do design color cells
+
+
+        wb = Workbook()
+        page = wb.active
+        #Set the name of the workbook
+        page.title = 'TO_SERVICE-NOW'
+
+        #Insert the example data to the example excel    
+        #TabTitles = ["Assignment Group", "Free Text Field", "Done", "REQUEST", "RITM", "TASK", "DATE", "GROUP"]
+        TabTitles = ["Assignment Group", "Free Text Field", "Done", "REQUEST", "RITM", "TASK", "DATE", "GROUP"]
+        page.append(TabTitles) # write the TabTitles to the first line
+
+        #Insert the example data to the example excel
+        #companies = ["datavision","excuse me, this is a test","<YES/NO>","REQ0000000","RITM0000000","SCTASK0000000","aaaa-aa-aa a:aa:aa","BI-ITMS-DATAVISION-ACCT-MGMT"]
+        companies = ["datavision","excuse me, this is a test","<YES/NO>","REQ0000000","RITM0000000","SCTASK0000000","aaaa-aa-aa a:aa:aa","BI-ITMS-DATAVISION-ACCT-MGMT"]
+
+
+        page.append(companies)
+
+        # Apply styles to the example sheet
+        for i in range (1, len(TabTitles)+1): 
+            self.printandlog(TabTitles[i - 1])
+
+            cell_obj = page.cell(row = 1, column = i)
+            #cell_obj.value = TabTitles[i - 1]
+            self.printandlog(len(cell_obj.value))
+            current_col = string.ascii_uppercase[i - 1]
+
+            page.column_dimensions[current_col].width = len(cell_obj.value) * 1.5
+            cell_obj.fill = tabColor_cell 
+            cell_obj.font = tabColor_text
+            self.printandlog("") 
+
+        # excel var utilities
+        max_row = page.max_row
+        max_col = page.max_column
+        factor_charactersize = 1.18
+
+        ##testing
+        #printandlog("testing")
+
+        #var that store the max width of a cell in a column
+        max_long_per_column = []
+
+        #printandlog("")
+
+        #to fix the size of the cells in the temporal excel
+
+        for x in range(0, max_col):
+            current_col = string.ascii_uppercase[x]
+            #numbers[x] = arr.array([0])
+            #max_long_per_column[x].append(0)
+            max_long_per_column.append(0)
+            for y in range(1, max_row + 1):
+                #save cell value
+                cell_obj = page.cell(row = y, column = x + 1)
+                self.printandlog(cell_obj)
+                self.printandlog(type(cell_obj.value).__name__)
+
+                if type(cell_obj.value).__name__ != 'NoneType':
+                    self.printandlog(len(cell_obj.value))
+
+                    #
+                    if max_long_per_column[x] < len(cell_obj.value):
+                        self.printandlog("encontro uno mas grande")
+                        max_long_per_column[x] = len(cell_obj.value)
+                        self.printandlog("el mas grande: " + str(max_long_per_column[x]))
+
+                        page.column_dimensions[current_col].width = max_long_per_column[x] * factor_charactersize
+                        pass
+                    else:
+                        self.printandlog("encontro uno mas chico")
+                        pass
+                    pass
+                else:
+                    self.printandlog("WTF")
+                    pass
+            self.printandlog("Termino uno calumna --------------------------------------------")
+            #check
+
+            #page.column_dimensions[current_col].width = max_long_per_column[x] * 1.5
+            
+        #workbook_name = 'sample.xlsx'
+        #workbook_name_temp = ''
+
+        #excelFile = "{}\\~tempFile-{}.xlsx".format(sys.path[0], str(datetime.datetime.now()))
+        #excelFile = "{}\\~tempfile.xlsx".format(sys.path[0])
+
+
+
+
+
+        #printandlog("Goto Sleep")
+        #sleep(50)
+
+        """
+        for info in companies:
+            page.append(info)
+        """
+        #wb.save(filename = workbook_name)
+
+        wb.save(filename = tempfilename)
+
+
+        #stuff_in_string = 'start excel.exe "{}"'.format(workbook_name)
+
+        #stuff_in_string = 'start excel.exe "{}"'.format(excelFile)
+        #stuff_in_string = 'start excel "{}"'.format(excelFile)
+
+        #os.system(stuff_in_string)
+        pass
+
+
+
+    def CreateExcelFormated(self,mydataframe):
+        from time import sleep
+        import datetime
+
+        # C:\Python38\python.exe -m pip install --upgrade pip
+        # C:\Python38\python.exe -m pip install openpyxl
+        # C:\Python38\python.exe -m pip install pytest
+        import pytest
+        import time
+        import json
+
+        #EXCEL
+        from openpyxl import load_workbook
+        import os
+        import sys
+        import openpyxl.utils.dataframe as oput #Connect the library
+        import openpyxl #Connect the library
+        from openpyxl import Workbook
+        from openpyxl.styles import PatternFill#Connect cell styles
+        from openpyxl.workbook import Workbook
+        from openpyxl.styles import Font, Fill#Connect styles for text
+        from openpyxl.styles import colors#Connect colors for text and cells
+        from openpyxl.utils import get_column_letter
+        import datetime
+        import string
+
+
+        import numpy
+
+
+
+
+        ##########################################################
+        ##  Chapter One Creating the excel to fill data
+        ##########################################################
+
+
+        #https://stackabuse.com/the-python-tempfile-module/
+
+
+        tempfilename = "~tempfile.xlsx"
+
+
+        datestring = self.getTime()
+        #with io.open((path.replace("xlsx", "{}.json")).replace("xls", "{}.json").format(number,number),'w',encoding='utf8') as f:
+
+        ##tempfilename = "~tempfile{}.xlsx".format(datestring)
+
+        
+        #delete file if exist feature
+
+        if os.path.exists(tempfilename):
+            os.remove(tempfilename)
+            self.printandlog("The file was deleted")
+        else:
+            self.printandlog("The file does not exist")
+        
+
+
+        #Styles
+        tabColor_text = Font(size=11, underline='none', color = 'ffffffff', bold=False, italic=False) #what color = colors.RED — color prescribed in styles
+        tabColor_cell = PatternFill(fill_type='solid', start_color='00000000', end_color='00000000')#This code allows you to do design color cells
+
+
+        wb = Workbook()
+        page = wb.active
+        #Set the name of the workbook
+        page.title = 'TO_SERVICE-NOW'
+
+
+        # mydataframe
+        # Create a Pandas Excel writer using XlsxWriter as the engine. 
+        
+
+        content = pd.DataFrame(oput.dataframe_to_rows(mydataframe, index=True, header=True)).to_numpy()
+        #Insert the example data to the example excel    
+        #TabTitles = ["Assignment Group", "Free Text Field", "Done", "REQUEST", "RITM", "TASK", "DATE", "GROUP"]
+        TabTitles = ["Assignment Group", "Free Text Field", "Done", "REQUEST", "RITM", "TASK", "DATE", "GROUP"]
+        #page.append(TabTitles) # write the TabTitles to the first line
+        
+        #Insert the example data to the example excel
+        #companies = ["datavision","excuse me, this is a test","<YES/NO>","REQ0000000","RITM0000000","SCTASK0000000","aaaa-aa-aa a:aa:aa","BI-ITMS-DATAVISION-ACCT-MGMT"]
+        companies = ["datavision","excuse me, this is a test","<YES/NO>","REQ0000000","RITM0000000","SCTASK0000000","aaaa-aa-aa a:aa:aa","BI-ITMS-DATAVISION-ACCT-MGMT"]
+
+        #page.append(companies)
+        print(" - ")
+        print(content.to_numpy())
+        print(" - ")
+        page.append(content)
+
+        # Apply styles to the example sheet
+        for i in range (1, len(TabTitles)+1): 
+            self.printandlog(TabTitles[i - 1])
+
+            cell_obj = page.cell(row = 1, column = i)
+            #cell_obj.value = TabTitles[i - 1]
+            self.printandlog(len(cell_obj.value))
+            current_col = string.ascii_uppercase[i - 1]
+
+            page.column_dimensions[current_col].width = len(cell_obj.value) * 1.5
+            cell_obj.fill = tabColor_cell 
+            cell_obj.font = tabColor_text
+            self.printandlog("") 
+
+        # excel var utilities
+        max_row = page.max_row
+        max_col = page.max_column
+        factor_charactersize = 1.18
+
+        ##testing
+        #printandlog("testing")
+
+        #var that store the max width of a cell in a column
+        max_long_per_column = []
+
+        #printandlog("")
+
+        #to fix the size of the cells in the temporal excel
+
+        for x in range(0, max_col):
+            current_col = string.ascii_uppercase[x]
+            #numbers[x] = arr.array([0])
+            #max_long_per_column[x].append(0)
+            max_long_per_column.append(0)
+            for y in range(1, max_row + 1):
+                #save cell value
+                cell_obj = page.cell(row = y, column = x + 1)
+                self.printandlog(cell_obj)
+                self.printandlog(type(cell_obj.value).__name__)
+
+                if type(cell_obj.value).__name__ != 'NoneType':
+                    self.printandlog(len(cell_obj.value))
+
+                    #
+                    if max_long_per_column[x] < len(cell_obj.value):
+                        self.printandlog("encontro uno mas grande")
+                        max_long_per_column[x] = len(cell_obj.value)
+                        self.printandlog("el mas grande: " + str(max_long_per_column[x]))
+
+                        page.column_dimensions[current_col].width = max_long_per_column[x] * factor_charactersize
+                        pass
+                    else:
+                        self.printandlog("encontro uno mas chico")
+                        pass
+                    pass
+                else:
+                    self.printandlog("WTF")
+                    pass
+            self.printandlog("Termino uno calumna --------------------------------------------")
+            #check
+
+            #page.column_dimensions[current_col].width = max_long_per_column[x] * 1.5
+            
+        #workbook_name = 'sample.xlsx'
+        #workbook_name_temp = ''
+
+        #excelFile = "{}\\~tempFile-{}.xlsx".format(sys.path[0], str(datetime.datetime.now()))
+        #excelFile = "{}\\~tempfile.xlsx".format(sys.path[0])
+
+
+
+
+
+        #printandlog("Goto Sleep")
+        #sleep(50)
+
+        """
+        for info in companies:
+            page.append(info)
+        """
+        #wb.save(filename = workbook_name)
+
+        wb.save(filename = tempfilename)
+
+
+        #stuff_in_string = 'start excel.exe "{}"'.format(workbook_name)
+
+        #stuff_in_string = 'start excel.exe "{}"'.format(excelFile)
+        #stuff_in_string = 'start excel "{}"'.format(excelFile)
+
+        #os.system(stuff_in_string)
+        pass
+
+
 
 
 # some JSON:
@@ -605,6 +1010,9 @@ covidargentina = CovidData(url)
 covidargentina.checkAllsGood()
 covidargentina.datostableprovincias()
 covidargentina.datostableargentina()
+
+# covidargentina.CreateExample()
+covidargentina.CreateExcelFormated(covidargentina.datoshistoricos())
 print("GG")
 
 # covidargentina.createDB(covidargentina.csvfilepath,covidargentina.dbfilepath)
@@ -613,7 +1021,7 @@ print("GG")
 
 
 def toMegabyte(number_in_bytes):
-    return round(number_in_bytes/1048576, 2)
+    #return round(number_in_bytes/1048576, 2)
     return round(number_in_bytes/1048576, 2)
 
 
@@ -921,9 +1329,9 @@ def asdasdaasa(file = "index.html"):
 
 # app.run()
 # https://stackoverflow.com/questions/41105733/limit-ram-usage-to-python-program
-if __name__ == '__main__':
+#if __name__ == '__main__':
     #app.run(port=5000, debug=True, use_reloader=True)
-    app.run(debug=True, host='0.0.0.0')
+    #app.run(debug=True, host='0.0.0.0')
 
     #app.run(host='127.0.0.1', port=5000, debug=True, use_reloader=True)
 
