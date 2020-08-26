@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Google Chart Example</title>
+  <script src="https://www.google.com/jsapi"></script>
+  <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+  <script src="http://prithwis.x10.bz/charts/jquery.csv-0.71.js"></script>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <!--   <script src="https://jquery-csv.googlecode.com/files/jquery.csv-0.71.js"></script>-->
+
+
+  <script type='text/javascript'>
+    google.charts.load('current', { 'packages': ['corechart', 'controls'] });
+    google.charts.setOnLoadCallback(drawStuff);
+
+    function drawStuff() {
+
+      var dashboard = new google.visualization.Dashboard(
+        document.getElementById('programmatic_dashboard_div'));
+
+      // We omit "var" so that programmaticSlider is visible to changeRange.
+      var programmaticSlider = new google.visualization.ControlWrapper({
+        'controlType': 'NumberRangeFilter',
+        'containerId': 'programmatic_control_div',
+        'options': {
+          'filterColumnLabel': 'Provincia',
+          'ui': { 'labelStacking': 'vertical' }
+        }
+      });
+
+      var programmaticChart = new google.visualization.ChartWrapper({
+        'chartType': 'PieChart',
+        'containerId': 'programmatic_chart_div',
+        'options': {
+          'width': 300,
+          'height': 300,
+          'legend': 'none',
+          'chartArea': { 'left': 15, 'top': 15, 'right': 0, 'bottom': 0 },
+          'pieSliceText': 'value'
+        }
+      });
+
+      $.get("http://127.0.0.1:5000/report/provincias/csv", function (csvString) {
+        // transform the CSV string into a 2-dimensional array
+        var arrayData = $.csv.toArrays(csvString, { onParseValue: $.csv.hooks.castToScalar });
+        // this new DataTable object holds all the data
+        var data = new google.visualization.arrayToDataTable(arrayData);
+        // this view can select a subset of the data at a time
+        var view = new google.visualization.DataView(data);
+        view.setColumns([1,2,3]);
+        var options = {
+          title: 'My Daily Activities',
+          pieHole: 0.4,
+        };
+
+        dashboard.bind(programmaticSlider, programmaticChart);
+        dashboard.draw(view);
+
+        changeRange = function () {
+          programmaticSlider.setState({ 'lowValue': 2, 'highValue': 5 });
+          programmaticSlider.draw();
+        };
+
+        changeOptions = function () {
+          programmaticChart.setOption('is3D', true);
+          programmaticChart.draw();
+        };
+      })
+    }
+
+
+  </script>
+</head>
+
+<body>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <div id="programmatic_dashboard_div" style="border: 1px solid #ccc">
+    <table class="columns">
+      <tr>
+        <td>
+          <div id="programmatic_control_div" style="padding-left: 2em; min-width: 250px"></div>
+          <div>
+            <button style="margin: 1em 1em 1em 2em" onclick="changeRange();">
+              Select range [2, 5]
+            </button><br />
+            <button style="margin: 1em 1em 1em 2em" onclick="changeOptions();">
+              Make the pie chart 3D
+            </button>
+          </div>
+        </td>
+        <td>
+          <div id="programmatic_chart_div"></div>
+        </td>
+      </tr>
+    </table>
+  </div>
+</body>
+
+</html>

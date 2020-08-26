@@ -1,0 +1,1508 @@
+{
+    "schema":{
+        "fields":[
+            {
+                "name":"Fecha",
+                "type":"string"
+            },
+            {
+                "name":"Cantidad de test",
+                "type":"integer"
+            },
+            {
+                "name":"Confirmados",
+                "type":"integer"
+            },
+            {
+                "name":"Recuperados",
+                "type":"integer"
+            },
+            {
+                "name":"Activos",
+                "type":"integer"
+            },
+            {
+                "name":"Fallecidos",
+                "type":"integer"
+            }
+        ],
+        "primaryKey":[
+            "Fecha"
+        ],
+        "pandas_version":"0.20.0"
+    },
+    "data":[
+        {
+            "Fecha":"2020-08-23",
+            "Cantidad de test":5362,
+            "Confirmados":887,
+            "Recuperados":8,
+            "Activos":879,
+            "Fallecidos":1
+        },
+        {
+            "Fecha":"2020-08-22",
+            "Cantidad de test":14738,
+            "Confirmados":2908,
+            "Recuperados":57,
+            "Activos":2851,
+            "Fallecidos":5
+        },
+        {
+            "Fecha":"2020-08-21",
+            "Cantidad de test":21308,
+            "Confirmados":5139,
+            "Recuperados":206,
+            "Activos":4933,
+            "Fallecidos":7
+        },
+        {
+            "Fecha":"2020-08-20",
+            "Cantidad de test":20394,
+            "Confirmados":6328,
+            "Recuperados":443,
+            "Activos":5885,
+            "Fallecidos":11
+        },
+        {
+            "Fecha":"2020-08-19",
+            "Cantidad de test":21764,
+            "Confirmados":7195,
+            "Recuperados":716,
+            "Activos":6479,
+            "Fallecidos":19
+        },
+        {
+            "Fecha":"2020-08-18",
+            "Cantidad de test":20192,
+            "Confirmados":6914,
+            "Recuperados":1104,
+            "Activos":5810,
+            "Fallecidos":29
+        },
+        {
+            "Fecha":"2020-08-17",
+            "Cantidad de test":13567,
+            "Confirmados":4439,
+            "Recuperados":1012,
+            "Activos":3427,
+            "Fallecidos":31
+        },
+        {
+            "Fecha":"2020-08-16",
+            "Cantidad de test":11255,
+            "Confirmados":3915,
+            "Recuperados":1177,
+            "Activos":2738,
+            "Fallecidos":37
+        },
+        {
+            "Fecha":"2020-08-15",
+            "Cantidad de test":13987,
+            "Confirmados":4825,
+            "Recuperados":1700,
+            "Activos":3125,
+            "Fallecidos":24
+        },
+        {
+            "Fecha":"2020-08-14",
+            "Cantidad de test":21099,
+            "Confirmados":6836,
+            "Recuperados":3042,
+            "Activos":3794,
+            "Fallecidos":50
+        },
+        {
+            "Fecha":"2020-08-13",
+            "Cantidad de test":19594,
+            "Confirmados":6480,
+            "Recuperados":5463,
+            "Activos":1017,
+            "Fallecidos":55
+        },
+        {
+            "Fecha":"2020-08-12",
+            "Cantidad de test":19686,
+            "Confirmados":6731,
+            "Recuperados":5768,
+            "Activos":963,
+            "Fallecidos":40
+        },
+        {
+            "Fecha":"2020-08-11",
+            "Cantidad de test":21016,
+            "Confirmados":7042,
+            "Recuperados":6019,
+            "Activos":1023,
+            "Fallecidos":61
+        },
+        {
+            "Fecha":"2020-08-10",
+            "Cantidad de test":19329,
+            "Confirmados":7051,
+            "Recuperados":6013,
+            "Activos":1038,
+            "Fallecidos":65
+        },
+        {
+            "Fecha":"2020-08-09",
+            "Cantidad de test":11734,
+            "Confirmados":4529,
+            "Recuperados":3819,
+            "Activos":710,
+            "Fallecidos":49
+        },
+        {
+            "Fecha":"2020-08-08",
+            "Cantidad de test":11305,
+            "Confirmados":4561,
+            "Recuperados":3956,
+            "Activos":605,
+            "Fallecidos":52
+        },
+        {
+            "Fecha":"2020-08-07",
+            "Cantidad de test":18822,
+            "Confirmados":7139,
+            "Recuperados":6403,
+            "Activos":736,
+            "Fallecidos":64
+        },
+        {
+            "Fecha":"2020-08-06",
+            "Cantidad de test":20043,
+            "Confirmados":8160,
+            "Recuperados":7321,
+            "Activos":839,
+            "Fallecidos":98
+        },
+        {
+            "Fecha":"2020-08-05",
+            "Cantidad de test":18624,
+            "Confirmados":7598,
+            "Recuperados":6721,
+            "Activos":877,
+            "Fallecidos":112
+        },
+        {
+            "Fecha":"2020-08-04",
+            "Cantidad de test":20400,
+            "Confirmados":8569,
+            "Recuperados":7655,
+            "Activos":914,
+            "Fallecidos":118
+        },
+        {
+            "Fecha":"2020-08-03",
+            "Cantidad de test":17534,
+            "Confirmados":7207,
+            "Recuperados":6313,
+            "Activos":894,
+            "Fallecidos":113
+        },
+        {
+            "Fecha":"2020-08-02",
+            "Cantidad de test":10571,
+            "Confirmados":4393,
+            "Recuperados":3725,
+            "Activos":668,
+            "Fallecidos":82
+        },
+        {
+            "Fecha":"2020-08-01",
+            "Cantidad de test":10455,
+            "Confirmados":4349,
+            "Recuperados":3804,
+            "Activos":545,
+            "Fallecidos":53
+        },
+        {
+            "Fecha":"2020-07-31",
+            "Cantidad de test":15717,
+            "Confirmados":6209,
+            "Recuperados":5460,
+            "Activos":749,
+            "Fallecidos":89
+        },
+        {
+            "Fecha":"2020-07-30",
+            "Cantidad de test":16462,
+            "Confirmados":6069,
+            "Recuperados":5354,
+            "Activos":715,
+            "Fallecidos":91
+        },
+        {
+            "Fecha":"2020-07-29",
+            "Cantidad de test":15912,
+            "Confirmados":6238,
+            "Recuperados":5501,
+            "Activos":737,
+            "Fallecidos":92
+        },
+        {
+            "Fecha":"2020-07-28",
+            "Cantidad de test":15587,
+            "Confirmados":6143,
+            "Recuperados":5439,
+            "Activos":704,
+            "Fallecidos":92
+        },
+        {
+            "Fecha":"2020-07-27",
+            "Cantidad de test":15028,
+            "Confirmados":5954,
+            "Recuperados":5142,
+            "Activos":812,
+            "Fallecidos":106
+        },
+        {
+            "Fecha":"2020-07-26",
+            "Cantidad de test":8137,
+            "Confirmados":3575,
+            "Recuperados":2983,
+            "Activos":592,
+            "Fallecidos":87
+        },
+        {
+            "Fecha":"2020-07-25",
+            "Cantidad de test":10726,
+            "Confirmados":4280,
+            "Recuperados":3655,
+            "Activos":625,
+            "Fallecidos":67
+        },
+        {
+            "Fecha":"2020-07-24",
+            "Cantidad de test":14677,
+            "Confirmados":5871,
+            "Recuperados":5118,
+            "Activos":753,
+            "Fallecidos":85
+        },
+        {
+            "Fecha":"2020-07-23",
+            "Cantidad de test":14528,
+            "Confirmados":5740,
+            "Recuperados":4917,
+            "Activos":823,
+            "Fallecidos":141
+        },
+        {
+            "Fecha":"2020-07-22",
+            "Cantidad de test":15240,
+            "Confirmados":6290,
+            "Recuperados":5495,
+            "Activos":795,
+            "Fallecidos":126
+        },
+        {
+            "Fecha":"2020-07-21",
+            "Cantidad de test":14592,
+            "Confirmados":5935,
+            "Recuperados":5038,
+            "Activos":897,
+            "Fallecidos":164
+        },
+        {
+            "Fecha":"2020-07-20",
+            "Cantidad de test":13576,
+            "Confirmados":5587,
+            "Recuperados":4727,
+            "Activos":860,
+            "Fallecidos":124
+        },
+        {
+            "Fecha":"2020-07-19",
+            "Cantidad de test":8544,
+            "Confirmados":3712,
+            "Recuperados":3078,
+            "Activos":634,
+            "Fallecidos":97
+        },
+        {
+            "Fecha":"2020-07-18",
+            "Cantidad de test":8518,
+            "Confirmados":3486,
+            "Recuperados":2919,
+            "Activos":567,
+            "Fallecidos":66
+        },
+        {
+            "Fecha":"2020-07-17",
+            "Cantidad de test":12728,
+            "Confirmados":4797,
+            "Recuperados":4083,
+            "Activos":714,
+            "Fallecidos":118
+        },
+        {
+            "Fecha":"2020-07-16",
+            "Cantidad de test":12589,
+            "Confirmados":4760,
+            "Recuperados":4004,
+            "Activos":756,
+            "Fallecidos":134
+        },
+        {
+            "Fecha":"2020-07-15",
+            "Cantidad de test":12237,
+            "Confirmados":4440,
+            "Recuperados":3731,
+            "Activos":709,
+            "Fallecidos":117
+        },
+        {
+            "Fecha":"2020-07-14",
+            "Cantidad de test":12561,
+            "Confirmados":4622,
+            "Recuperados":3961,
+            "Activos":661,
+            "Fallecidos":119
+        },
+        {
+            "Fecha":"2020-07-13",
+            "Cantidad de test":12064,
+            "Confirmados":4222,
+            "Recuperados":3538,
+            "Activos":684,
+            "Fallecidos":132
+        },
+        {
+            "Fecha":"2020-07-12",
+            "Cantidad de test":6835,
+            "Confirmados":2485,
+            "Recuperados":1942,
+            "Activos":543,
+            "Fallecidos":81
+        },
+        {
+            "Fecha":"2020-07-11",
+            "Cantidad de test":8426,
+            "Confirmados":3041,
+            "Recuperados":2477,
+            "Activos":564,
+            "Fallecidos":114
+        },
+        {
+            "Fecha":"2020-07-10",
+            "Cantidad de test":8733,
+            "Confirmados":3319,
+            "Recuperados":2751,
+            "Activos":568,
+            "Fallecidos":77
+        },
+        {
+            "Fecha":"2020-07-09",
+            "Cantidad de test":8514,
+            "Confirmados":3176,
+            "Recuperados":2608,
+            "Activos":568,
+            "Fallecidos":85
+        },
+        {
+            "Fecha":"2020-07-08",
+            "Cantidad de test":10927,
+            "Confirmados":3826,
+            "Recuperados":3140,
+            "Activos":686,
+            "Fallecidos":122
+        },
+        {
+            "Fecha":"2020-07-07",
+            "Cantidad de test":10563,
+            "Confirmados":4012,
+            "Recuperados":3412,
+            "Activos":600,
+            "Fallecidos":119
+        },
+        {
+            "Fecha":"2020-07-06",
+            "Cantidad de test":9883,
+            "Confirmados":3773,
+            "Recuperados":3133,
+            "Activos":640,
+            "Fallecidos":120
+        },
+        {
+            "Fecha":"2020-07-05",
+            "Cantidad de test":5775,
+            "Confirmados":2296,
+            "Recuperados":1829,
+            "Activos":467,
+            "Fallecidos":70
+        },
+        {
+            "Fecha":"2020-07-04",
+            "Cantidad de test":6821,
+            "Confirmados":2363,
+            "Recuperados":1902,
+            "Activos":461,
+            "Fallecidos":81
+        },
+        {
+            "Fecha":"2020-07-03",
+            "Cantidad de test":9060,
+            "Confirmados":3146,
+            "Recuperados":2649,
+            "Activos":497,
+            "Fallecidos":95
+        },
+        {
+            "Fecha":"2020-07-02",
+            "Cantidad de test":8469,
+            "Confirmados":2954,
+            "Recuperados":2444,
+            "Activos":510,
+            "Fallecidos":95
+        },
+        {
+            "Fecha":"2020-07-01",
+            "Cantidad de test":8157,
+            "Confirmados":2843,
+            "Recuperados":2332,
+            "Activos":511,
+            "Fallecidos":75
+        },
+        {
+            "Fecha":"2020-06-30",
+            "Cantidad de test":8451,
+            "Confirmados":2886,
+            "Recuperados":2372,
+            "Activos":514,
+            "Fallecidos":104
+        },
+        {
+            "Fecha":"2020-06-29",
+            "Cantidad de test":8625,
+            "Confirmados":2794,
+            "Recuperados":2310,
+            "Activos":484,
+            "Fallecidos":83
+        },
+        {
+            "Fecha":"2020-06-28",
+            "Cantidad de test":5256,
+            "Confirmados":1857,
+            "Recuperados":1510,
+            "Activos":347,
+            "Fallecidos":43
+        },
+        {
+            "Fecha":"2020-06-27",
+            "Cantidad de test":6886,
+            "Confirmados":2253,
+            "Recuperados":1837,
+            "Activos":416,
+            "Fallecidos":56
+        },
+        {
+            "Fecha":"2020-06-26",
+            "Cantidad de test":8914,
+            "Confirmados":2853,
+            "Recuperados":2347,
+            "Activos":506,
+            "Fallecidos":80
+        },
+        {
+            "Fecha":"2020-06-25",
+            "Cantidad de test":8802,
+            "Confirmados":2840,
+            "Recuperados":2328,
+            "Activos":512,
+            "Fallecidos":77
+        },
+        {
+            "Fecha":"2020-06-24",
+            "Cantidad de test":9038,
+            "Confirmados":2938,
+            "Recuperados":2410,
+            "Activos":528,
+            "Fallecidos":81
+        },
+        {
+            "Fecha":"2020-06-23",
+            "Cantidad de test":8730,
+            "Confirmados":2720,
+            "Recuperados":2222,
+            "Activos":498,
+            "Fallecidos":83
+        },
+        {
+            "Fecha":"2020-06-22",
+            "Cantidad de test":7905,
+            "Confirmados":2605,
+            "Recuperados":2080,
+            "Activos":525,
+            "Fallecidos":78
+        },
+        {
+            "Fecha":"2020-06-21",
+            "Cantidad de test":4829,
+            "Confirmados":1678,
+            "Recuperados":1294,
+            "Activos":384,
+            "Fallecidos":48
+        },
+        {
+            "Fecha":"2020-06-20",
+            "Cantidad de test":6644,
+            "Confirmados":2198,
+            "Recuperados":1744,
+            "Activos":454,
+            "Fallecidos":73
+        },
+        {
+            "Fecha":"2020-06-19",
+            "Cantidad de test":6857,
+            "Confirmados":2126,
+            "Recuperados":1721,
+            "Activos":405,
+            "Fallecidos":73
+        },
+        {
+            "Fecha":"2020-06-18",
+            "Cantidad de test":7609,
+            "Confirmados":2188,
+            "Recuperados":1782,
+            "Activos":406,
+            "Fallecidos":47
+        },
+        {
+            "Fecha":"2020-06-17",
+            "Cantidad de test":6974,
+            "Confirmados":1973,
+            "Recuperados":1630,
+            "Activos":343,
+            "Fallecidos":56
+        },
+        {
+            "Fecha":"2020-06-16",
+            "Cantidad de test":6778,
+            "Confirmados":1914,
+            "Recuperados":1554,
+            "Activos":360,
+            "Fallecidos":49
+        },
+        {
+            "Fecha":"2020-06-15",
+            "Cantidad de test":4441,
+            "Confirmados":1364,
+            "Recuperados":1043,
+            "Activos":321,
+            "Fallecidos":45
+        },
+        {
+            "Fecha":"2020-06-14",
+            "Cantidad de test":3776,
+            "Confirmados":1174,
+            "Recuperados":910,
+            "Activos":264,
+            "Fallecidos":37
+        },
+        {
+            "Fecha":"2020-06-13",
+            "Cantidad de test":4835,
+            "Confirmados":1313,
+            "Recuperados":1015,
+            "Activos":298,
+            "Fallecidos":40
+        },
+        {
+            "Fecha":"2020-06-12",
+            "Cantidad de test":6588,
+            "Confirmados":1808,
+            "Recuperados":1471,
+            "Activos":337,
+            "Fallecidos":46
+        },
+        {
+            "Fecha":"2020-06-11",
+            "Cantidad de test":5855,
+            "Confirmados":1574,
+            "Recuperados":1283,
+            "Activos":291,
+            "Fallecidos":45
+        },
+        {
+            "Fecha":"2020-06-10",
+            "Cantidad de test":5895,
+            "Confirmados":1564,
+            "Recuperados":1249,
+            "Activos":315,
+            "Fallecidos":46
+        },
+        {
+            "Fecha":"2020-06-09",
+            "Cantidad de test":5241,
+            "Confirmados":1346,
+            "Recuperados":1053,
+            "Activos":293,
+            "Fallecidos":37
+        },
+        {
+            "Fecha":"2020-06-08",
+            "Cantidad de test":5324,
+            "Confirmados":1317,
+            "Recuperados":1047,
+            "Activos":270,
+            "Fallecidos":46
+        },
+        {
+            "Fecha":"2020-06-07",
+            "Cantidad de test":3049,
+            "Confirmados":812,
+            "Recuperados":627,
+            "Activos":185,
+            "Fallecidos":31
+        },
+        {
+            "Fecha":"2020-06-06",
+            "Cantidad de test":3946,
+            "Confirmados":949,
+            "Recuperados":763,
+            "Activos":186,
+            "Fallecidos":33
+        },
+        {
+            "Fecha":"2020-06-05",
+            "Cantidad de test":4640,
+            "Confirmados":1113,
+            "Recuperados":924,
+            "Activos":189,
+            "Fallecidos":41
+        },
+        {
+            "Fecha":"2020-06-04",
+            "Cantidad de test":4761,
+            "Confirmados":1011,
+            "Recuperados":838,
+            "Activos":173,
+            "Fallecidos":36
+        },
+        {
+            "Fecha":"2020-06-03",
+            "Cantidad de test":4628,
+            "Confirmados":976,
+            "Recuperados":793,
+            "Activos":183,
+            "Fallecidos":47
+        },
+        {
+            "Fecha":"2020-06-02",
+            "Cantidad de test":4650,
+            "Confirmados":969,
+            "Recuperados":784,
+            "Activos":185,
+            "Fallecidos":35
+        },
+        {
+            "Fecha":"2020-06-01",
+            "Cantidad de test":4225,
+            "Confirmados":919,
+            "Recuperados":766,
+            "Activos":153,
+            "Fallecidos":32
+        },
+        {
+            "Fecha":"2020-05-31",
+            "Cantidad de test":2585,
+            "Confirmados":590,
+            "Recuperados":480,
+            "Activos":110,
+            "Fallecidos":26
+        },
+        {
+            "Fecha":"2020-05-30",
+            "Cantidad de test":3562,
+            "Confirmados":771,
+            "Recuperados":628,
+            "Activos":143,
+            "Fallecidos":30
+        },
+        {
+            "Fecha":"2020-05-29",
+            "Cantidad de test":4397,
+            "Confirmados":951,
+            "Recuperados":778,
+            "Activos":173,
+            "Fallecidos":44
+        },
+        {
+            "Fecha":"2020-05-28",
+            "Cantidad de test":4372,
+            "Confirmados":841,
+            "Recuperados":690,
+            "Activos":151,
+            "Fallecidos":40
+        },
+        {
+            "Fecha":"2020-05-27",
+            "Cantidad de test":4470,
+            "Confirmados":816,
+            "Recuperados":663,
+            "Activos":153,
+            "Fallecidos":33
+        },
+        {
+            "Fecha":"2020-05-26",
+            "Cantidad de test":4049,
+            "Confirmados":731,
+            "Recuperados":558,
+            "Activos":173,
+            "Fallecidos":21
+        },
+        {
+            "Fecha":"2020-05-25",
+            "Cantidad de test":2681,
+            "Confirmados":607,
+            "Recuperados":501,
+            "Activos":106,
+            "Fallecidos":16
+        },
+        {
+            "Fecha":"2020-05-24",
+            "Cantidad de test":2683,
+            "Confirmados":584,
+            "Recuperados":460,
+            "Activos":124,
+            "Fallecidos":18
+        },
+        {
+            "Fecha":"2020-05-23",
+            "Cantidad de test":3111,
+            "Confirmados":702,
+            "Recuperados":571,
+            "Activos":131,
+            "Fallecidos":14
+        },
+        {
+            "Fecha":"2020-05-22",
+            "Cantidad de test":4106,
+            "Confirmados":773,
+            "Recuperados":620,
+            "Activos":153,
+            "Fallecidos":25
+        },
+        {
+            "Fecha":"2020-05-21",
+            "Cantidad de test":3917,
+            "Confirmados":752,
+            "Recuperados":587,
+            "Activos":165,
+            "Fallecidos":27
+        },
+        {
+            "Fecha":"2020-05-20",
+            "Cantidad de test":3871,
+            "Confirmados":674,
+            "Recuperados":531,
+            "Activos":143,
+            "Fallecidos":18
+        },
+        {
+            "Fecha":"2020-05-19",
+            "Cantidad de test":3689,
+            "Confirmados":549,
+            "Recuperados":416,
+            "Activos":133,
+            "Fallecidos":26
+        },
+        {
+            "Fecha":"2020-05-18",
+            "Cantidad de test":3454,
+            "Confirmados":563,
+            "Recuperados":417,
+            "Activos":146,
+            "Fallecidos":29
+        },
+        {
+            "Fecha":"2020-05-17",
+            "Cantidad de test":2136,
+            "Confirmados":424,
+            "Recuperados":334,
+            "Activos":90,
+            "Fallecidos":22
+        },
+        {
+            "Fecha":"2020-05-16",
+            "Cantidad de test":2234,
+            "Confirmados":363,
+            "Recuperados":274,
+            "Activos":89,
+            "Fallecidos":16
+        },
+        {
+            "Fecha":"2020-05-15",
+            "Cantidad de test":3053,
+            "Confirmados":403,
+            "Recuperados":328,
+            "Activos":75,
+            "Fallecidos":10
+        },
+        {
+            "Fecha":"2020-05-14",
+            "Cantidad de test":2911,
+            "Confirmados":411,
+            "Recuperados":333,
+            "Activos":78,
+            "Fallecidos":17
+        },
+        {
+            "Fecha":"2020-05-13",
+            "Cantidad de test":2742,
+            "Confirmados":333,
+            "Recuperados":257,
+            "Activos":76,
+            "Fallecidos":16
+        },
+        {
+            "Fecha":"2020-05-12",
+            "Cantidad de test":2648,
+            "Confirmados":358,
+            "Recuperados":273,
+            "Activos":85,
+            "Fallecidos":21
+        },
+        {
+            "Fecha":"2020-05-11",
+            "Cantidad de test":2799,
+            "Confirmados":316,
+            "Recuperados":246,
+            "Activos":70,
+            "Fallecidos":12
+        },
+        {
+            "Fecha":"2020-05-10",
+            "Cantidad de test":1453,
+            "Confirmados":257,
+            "Recuperados":200,
+            "Activos":57,
+            "Fallecidos":11
+        },
+        {
+            "Fecha":"2020-05-09",
+            "Cantidad de test":1898,
+            "Confirmados":212,
+            "Recuperados":165,
+            "Activos":47,
+            "Fallecidos":8
+        },
+        {
+            "Fecha":"2020-05-08",
+            "Cantidad de test":2171,
+            "Confirmados":265,
+            "Recuperados":210,
+            "Activos":55,
+            "Fallecidos":9
+        },
+        {
+            "Fecha":"2020-05-07",
+            "Cantidad de test":2341,
+            "Confirmados":295,
+            "Recuperados":225,
+            "Activos":70,
+            "Fallecidos":20
+        },
+        {
+            "Fecha":"2020-05-06",
+            "Cantidad de test":2190,
+            "Confirmados":248,
+            "Recuperados":207,
+            "Activos":41,
+            "Fallecidos":7
+        },
+        {
+            "Fecha":"2020-05-05",
+            "Cantidad de test":2071,
+            "Confirmados":205,
+            "Recuperados":160,
+            "Activos":45,
+            "Fallecidos":16
+        },
+        {
+            "Fecha":"2020-05-04",
+            "Cantidad de test":2255,
+            "Confirmados":162,
+            "Recuperados":104,
+            "Activos":58,
+            "Fallecidos":16
+        },
+        {
+            "Fecha":"2020-05-03",
+            "Cantidad de test":1529,
+            "Confirmados":97,
+            "Recuperados":75,
+            "Activos":22,
+            "Fallecidos":7
+        },
+        {
+            "Fecha":"2020-05-02",
+            "Cantidad de test":1646,
+            "Confirmados":140,
+            "Recuperados":109,
+            "Activos":31,
+            "Fallecidos":8
+        },
+        {
+            "Fecha":"2020-05-01",
+            "Cantidad de test":1514,
+            "Confirmados":130,
+            "Recuperados":93,
+            "Activos":37,
+            "Fallecidos":9
+        },
+        {
+            "Fecha":"2020-04-30",
+            "Cantidad de test":2298,
+            "Confirmados":183,
+            "Recuperados":151,
+            "Activos":32,
+            "Fallecidos":12
+        },
+        {
+            "Fecha":"2020-04-29",
+            "Cantidad de test":2308,
+            "Confirmados":144,
+            "Recuperados":111,
+            "Activos":33,
+            "Fallecidos":13
+        },
+        {
+            "Fecha":"2020-04-28",
+            "Cantidad de test":2356,
+            "Confirmados":164,
+            "Recuperados":129,
+            "Activos":35,
+            "Fallecidos":17
+        },
+        {
+            "Fecha":"2020-04-27",
+            "Cantidad de test":2221,
+            "Confirmados":181,
+            "Recuperados":142,
+            "Activos":39,
+            "Fallecidos":14
+        },
+        {
+            "Fecha":"2020-04-26",
+            "Cantidad de test":1135,
+            "Confirmados":93,
+            "Recuperados":73,
+            "Activos":20,
+            "Fallecidos":7
+        },
+        {
+            "Fecha":"2020-04-25",
+            "Cantidad de test":1651,
+            "Confirmados":124,
+            "Recuperados":106,
+            "Activos":18,
+            "Fallecidos":6
+        },
+        {
+            "Fecha":"2020-04-24",
+            "Cantidad de test":2402,
+            "Confirmados":189,
+            "Recuperados":143,
+            "Activos":46,
+            "Fallecidos":19
+        },
+        {
+            "Fecha":"2020-04-23",
+            "Cantidad de test":2337,
+            "Confirmados":250,
+            "Recuperados":193,
+            "Activos":57,
+            "Fallecidos":23
+        },
+        {
+            "Fecha":"2020-04-22",
+            "Cantidad de test":2130,
+            "Confirmados":146,
+            "Recuperados":116,
+            "Activos":30,
+            "Fallecidos":17
+        },
+        {
+            "Fecha":"2020-04-21",
+            "Cantidad de test":2154,
+            "Confirmados":192,
+            "Recuperados":145,
+            "Activos":47,
+            "Fallecidos":22
+        },
+        {
+            "Fecha":"2020-04-20",
+            "Cantidad de test":2362,
+            "Confirmados":159,
+            "Recuperados":121,
+            "Activos":38,
+            "Fallecidos":13
+        },
+        {
+            "Fecha":"2020-04-19",
+            "Cantidad de test":1350,
+            "Confirmados":104,
+            "Recuperados":84,
+            "Activos":20,
+            "Fallecidos":7
+        },
+        {
+            "Fecha":"2020-04-18",
+            "Cantidad de test":1553,
+            "Confirmados":111,
+            "Recuperados":88,
+            "Activos":23,
+            "Fallecidos":15
+        },
+        {
+            "Fecha":"2020-04-17",
+            "Cantidad de test":2010,
+            "Confirmados":126,
+            "Recuperados":98,
+            "Activos":28,
+            "Fallecidos":10
+        },
+        {
+            "Fecha":"2020-04-16",
+            "Cantidad de test":1820,
+            "Confirmados":116,
+            "Recuperados":102,
+            "Activos":14,
+            "Fallecidos":4
+        },
+        {
+            "Fecha":"2020-04-15",
+            "Cantidad de test":1833,
+            "Confirmados":131,
+            "Recuperados":118,
+            "Activos":13,
+            "Fallecidos":6
+        },
+        {
+            "Fecha":"2020-04-14",
+            "Cantidad de test":1585,
+            "Confirmados":99,
+            "Recuperados":80,
+            "Activos":19,
+            "Fallecidos":9
+        },
+        {
+            "Fecha":"2020-04-13",
+            "Cantidad de test":1853,
+            "Confirmados":135,
+            "Recuperados":115,
+            "Activos":20,
+            "Fallecidos":9
+        },
+        {
+            "Fecha":"2020-04-12",
+            "Cantidad de test":1278,
+            "Confirmados":111,
+            "Recuperados":93,
+            "Activos":18,
+            "Fallecidos":7
+        },
+        {
+            "Fecha":"2020-04-11",
+            "Cantidad de test":1363,
+            "Confirmados":122,
+            "Recuperados":100,
+            "Activos":22,
+            "Fallecidos":17
+        },
+        {
+            "Fecha":"2020-04-10",
+            "Cantidad de test":1074,
+            "Confirmados":84,
+            "Recuperados":72,
+            "Activos":12,
+            "Fallecidos":4
+        },
+        {
+            "Fecha":"2020-04-09",
+            "Cantidad de test":1535,
+            "Confirmados":104,
+            "Recuperados":92,
+            "Activos":12,
+            "Fallecidos":4
+        },
+        {
+            "Fecha":"2020-04-08",
+            "Cantidad de test":1446,
+            "Confirmados":96,
+            "Recuperados":76,
+            "Activos":20,
+            "Fallecidos":10
+        },
+        {
+            "Fecha":"2020-04-07",
+            "Cantidad de test":1366,
+            "Confirmados":103,
+            "Recuperados":92,
+            "Activos":11,
+            "Fallecidos":5
+        },
+        {
+            "Fecha":"2020-04-06",
+            "Cantidad de test":1436,
+            "Confirmados":114,
+            "Recuperados":94,
+            "Activos":20,
+            "Fallecidos":17
+        },
+        {
+            "Fecha":"2020-04-05",
+            "Cantidad de test":762,
+            "Confirmados":58,
+            "Recuperados":44,
+            "Activos":14,
+            "Fallecidos":8
+        },
+        {
+            "Fecha":"2020-04-04",
+            "Cantidad de test":945,
+            "Confirmados":86,
+            "Recuperados":75,
+            "Activos":11,
+            "Fallecidos":6
+        },
+        {
+            "Fecha":"2020-04-03",
+            "Cantidad de test":1177,
+            "Confirmados":98,
+            "Recuperados":88,
+            "Activos":10,
+            "Fallecidos":5
+        },
+        {
+            "Fecha":"2020-04-02",
+            "Cantidad de test":1088,
+            "Confirmados":126,
+            "Recuperados":109,
+            "Activos":17,
+            "Fallecidos":7
+        },
+        {
+            "Fecha":"2020-04-01",
+            "Cantidad de test":1070,
+            "Confirmados":100,
+            "Recuperados":86,
+            "Activos":14,
+            "Fallecidos":9
+        },
+        {
+            "Fecha":"2020-03-31",
+            "Cantidad de test":702,
+            "Confirmados":88,
+            "Recuperados":77,
+            "Activos":11,
+            "Fallecidos":10
+        },
+        {
+            "Fecha":"2020-03-30",
+            "Cantidad de test":791,
+            "Confirmados":121,
+            "Recuperados":101,
+            "Activos":20,
+            "Fallecidos":10
+        },
+        {
+            "Fecha":"2020-03-29",
+            "Cantidad de test":497,
+            "Confirmados":87,
+            "Recuperados":78,
+            "Activos":9,
+            "Fallecidos":4
+        },
+        {
+            "Fecha":"2020-03-28",
+            "Cantidad de test":645,
+            "Confirmados":79,
+            "Recuperados":67,
+            "Activos":12,
+            "Fallecidos":9
+        },
+        {
+            "Fecha":"2020-03-27",
+            "Cantidad de test":670,
+            "Confirmados":109,
+            "Recuperados":100,
+            "Activos":9,
+            "Fallecidos":6
+        },
+        {
+            "Fecha":"2020-03-26",
+            "Cantidad de test":675,
+            "Confirmados":97,
+            "Recuperados":85,
+            "Activos":12,
+            "Fallecidos":8
+        },
+        {
+            "Fecha":"2020-03-25",
+            "Cantidad de test":621,
+            "Confirmados":107,
+            "Recuperados":94,
+            "Activos":13,
+            "Fallecidos":11
+        },
+        {
+            "Fecha":"2020-03-24",
+            "Cantidad de test":415,
+            "Confirmados":110,
+            "Recuperados":100,
+            "Activos":10,
+            "Fallecidos":5
+        },
+        {
+            "Fecha":"2020-03-23",
+            "Cantidad de test":426,
+            "Confirmados":98,
+            "Recuperados":92,
+            "Activos":6,
+            "Fallecidos":4
+        },
+        {
+            "Fecha":"2020-03-22",
+            "Cantidad de test":260,
+            "Confirmados":76,
+            "Recuperados":70,
+            "Activos":6,
+            "Fallecidos":3
+        },
+        {
+            "Fecha":"2020-03-21",
+            "Cantidad de test":230,
+            "Confirmados":66,
+            "Recuperados":63,
+            "Activos":3,
+            "Fallecidos":0
+        },
+        {
+            "Fecha":"2020-03-20",
+            "Cantidad de test":303,
+            "Confirmados":79,
+            "Recuperados":77,
+            "Activos":2,
+            "Fallecidos":2
+        },
+        {
+            "Fecha":"2020-03-19",
+            "Cantidad de test":235,
+            "Confirmados":37,
+            "Recuperados":35,
+            "Activos":2,
+            "Fallecidos":1
+        },
+        {
+            "Fecha":"2020-03-18",
+            "Cantidad de test":296,
+            "Confirmados":44,
+            "Recuperados":44,
+            "Activos":0,
+            "Fallecidos":0
+        },
+        {
+            "Fecha":"2020-03-17",
+            "Cantidad de test":260,
+            "Confirmados":49,
+            "Recuperados":41,
+            "Activos":8,
+            "Fallecidos":2
+        },
+        {
+            "Fecha":"2020-03-16",
+            "Cantidad de test":160,
+            "Confirmados":26,
+            "Recuperados":21,
+            "Activos":5,
+            "Fallecidos":3
+        },
+        {
+            "Fecha":"2020-03-15",
+            "Cantidad de test":83,
+            "Confirmados":16,
+            "Recuperados":14,
+            "Activos":2,
+            "Fallecidos":0
+        },
+        {
+            "Fecha":"2020-03-14",
+            "Cantidad de test":97,
+            "Confirmados":10,
+            "Recuperados":9,
+            "Activos":1,
+            "Fallecidos":1
+        },
+        {
+            "Fecha":"2020-03-13",
+            "Cantidad de test":209,
+            "Confirmados":30,
+            "Recuperados":24,
+            "Activos":6,
+            "Fallecidos":4
+        },
+        {
+            "Fecha":"2020-03-12",
+            "Cantidad de test":148,
+            "Confirmados":18,
+            "Recuperados":15,
+            "Activos":3,
+            "Fallecidos":1
+        },
+        {
+            "Fecha":"2020-03-11",
+            "Cantidad de test":97,
+            "Confirmados":11,
+            "Recuperados":10,
+            "Activos":1,
+            "Fallecidos":0
+        },
+        {
+            "Fecha":"2020-03-10",
+            "Cantidad de test":64,
+            "Confirmados":8,
+            "Recuperados":6,
+            "Activos":2,
+            "Fallecidos":2
+        },
+        {
+            "Fecha":"2020-03-09",
+            "Cantidad de test":47,
+            "Confirmados":4,
+            "Recuperados":3,
+            "Activos":1,
+            "Fallecidos":0
+        },
+        {
+            "Fecha":"2020-03-08",
+            "Cantidad de test":17,
+            "Confirmados":2,
+            "Recuperados":2,
+            "Activos":0,
+            "Fallecidos":0
+        },
+        {
+            "Fecha":"2020-03-07",
+            "Cantidad de test":19,
+            "Confirmados":6,
+            "Recuperados":6,
+            "Activos":0,
+            "Fallecidos":0
+        },
+        {
+            "Fecha":"2020-03-06",
+            "Cantidad de test":15,
+            "Confirmados":1,
+            "Recuperados":1,
+            "Activos":0,
+            "Fallecidos":0
+        },
+        {
+            "Fecha":"2020-03-05",
+            "Cantidad de test":23,
+            "Confirmados":5,
+            "Recuperados":4,
+            "Activos":1,
+            "Fallecidos":1
+        },
+        {
+            "Fecha":"2020-03-04",
+            "Cantidad de test":12,
+            "Confirmados":1,
+            "Recuperados":1,
+            "Activos":0,
+            "Fallecidos":0
+        },
+        {
+            "Fecha":"2020-03-03",
+            "Cantidad de test":11,
+            "Confirmados":1,
+            "Recuperados":1,
+            "Activos":0,
+            "Fallecidos":0
+        },
+        {
+            "Fecha":"2020-03-02",
+            "Cantidad de test":10,
+            "Confirmados":1,
+            "Recuperados":1,
+            "Activos":0,
+            "Fallecidos":0
+        },
+        {
+            "Fecha":"2020-02-28",
+            "Cantidad de test":8,
+            "Confirmados":0,
+            "Recuperados":0,
+            "Activos":0,
+            "Fallecidos":0
+        },
+        {
+            "Fecha":"2020-02-27",
+            "Cantidad de test":8,
+            "Confirmados":0,
+            "Recuperados":0,
+            "Activos":0,
+            "Fallecidos":0
+        },
+        {
+            "Fecha":"2020-02-26",
+            "Cantidad de test":11,
+            "Confirmados":0,
+            "Recuperados":0,
+            "Activos":0,
+            "Fallecidos":0
+        },
+        {
+            "Fecha":"2020-02-18",
+            "Cantidad de test":1,
+            "Confirmados":0,
+            "Recuperados":0,
+            "Activos":0,
+            "Fallecidos":0
+        },
+        {
+            "Fecha":"2020-02-12",
+            "Cantidad de test":1,
+            "Confirmados":0,
+            "Recuperados":0,
+            "Activos":0,
+            "Fallecidos":0
+        },
+        {
+            "Fecha":"2020-02-05",
+            "Cantidad de test":1,
+            "Confirmados":0,
+            "Recuperados":0,
+            "Activos":0,
+            "Fallecidos":0
+        },
+        {
+            "Fecha":"2020-02-04",
+            "Cantidad de test":2,
+            "Confirmados":0,
+            "Recuperados":0,
+            "Activos":0,
+            "Fallecidos":0
+        },
+        {
+            "Fecha":"2020-01-31",
+            "Cantidad de test":5,
+            "Confirmados":0,
+            "Recuperados":0,
+            "Activos":0,
+            "Fallecidos":0
+        },
+        {
+            "Fecha":null,
+            "Cantidad de test":1,
+            "Confirmados":0,
+            "Recuperados":0,
+            "Activos":0,
+            "Fallecidos":0
+        }
+    ]
+}

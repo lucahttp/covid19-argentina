@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2020 by voltdatalab (http://jsbin.com/mohehow/9/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>This is a Morris.js chart!</title>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
+    <style id="jsbin-css">
+        body {
+            padding: 0px 20px 10px 30px;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        p {
+            line-height: 1.4em;
+        }
+
+        h5 {
+            border-top: 1px solid #000;
+            display: inline;
+            font-weight: 400;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>US unemployment rate</h1>
+    <p>Unemployment refers to the share of the labor force that is without work but available for and seeking
+        employment.
+        Measured in % of total labor force</p>
+    <div id="myfirstchart" style="height: 300px;">
+    </div>
+    <h5>Source: World Bank </h5>
+
+    <script id="jsbin-javascript">
+        new Morris.Line({
+            element: 'myfirstchart',
+            xkey: 'dates',
+            ykeys: ['rate'],
+            labels: ['Unemployment rate'],
+            xLabels: ['year'],
+            lineColors: ['#C00'],
+            postUnits: ['%'],
+            goals: ['6.6'],
+            goalStrokeWidth: ['2px'],
+            goalLineColors: ['#000'],
+            pointSize: ['3px'],
+            gridTextSize: ['14px'],
+            gridTextColor: ['#777'],
+            gridTextFamily: ['Roboto'],
+            hideHover: ['auto'],
+            resize: ['auto'],
+            data: [
+                {
+                    "index": "Unemployment rate",
+                    "rate": 4.8,
+                    "year": 2001,
+                    "dates": "2001-1"
+                },
+                {
+                    "index": "Unemployment rate",
+                    "rate": 5.9,
+                    "year": 2002,
+                    "dates": "2002-1"
+                },
+                {
+                    "index": "Unemployment rate",
+                    "rate": 6.1,
+                    "year": 2003,
+                    "dates": "2003-1"
+                },
+                {
+                    "index": "Unemployment rate",
+                    "rate": 5.6,
+                    "year": 2004,
+                    "dates": "2004-1"
+                },
+                {
+                    "index": "Unemployment rate",
+                    "rate": 5.2,
+                    "year": 2005,
+                    "dates": "2005-1"
+                },
+                {
+                    "index": "Unemployment rate",
+                    "rate": 4.7,
+                    "year": 2006,
+                    "dates": "2006-1"
+                },
+                {
+                    "index": "Unemployment rate",
+                    "rate": 4.7,
+                    "year": 2007,
+                    "dates": "2007-1"
+                },
+                {
+                    "index": "Unemployment rate",
+                    "rate": 5.9,
+                    "year": 2008,
+                    "dates": "2008-1"
+                },
+                {
+                    "index": "Unemployment rate",
+                    "rate": 9.4,
+                    "year": 2009,
+                    "dates": "2009-1"
+                },
+                {
+                    "index": "Unemployment rate",
+                    "rate": 9.7,
+                    "year": 2010,
+                    "dates": "2010-1"
+                },
+                {
+                    "index": "Unemployment rate",
+                    "rate": 9,
+                    "year": 2011,
+                    "dates": "2011-1"
+                },
+                {
+                    "index": "Unemployment rate",
+                    "rate": 8.2,
+                    "year": 2012,
+                    "dates": "2012-1"
+                },
+                {
+                    "index": "Unemployment rate",
+                    "rate": 7.4,
+                    "year": 2013,
+                    "dates": "2013-1"
+                },
+                {
+                    "index": "Unemployment rate",
+                    "rate": 6.2,
+                    "year": 2014,
+                    "dates": "2014-1"
+                }
+            ]
+        });
+    </script>
+</body>
+
+</html>
