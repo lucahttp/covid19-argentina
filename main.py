@@ -370,7 +370,7 @@ class CovidData:
         # import pandas as pd
 
         # making data frame from csv file
-        data = pd.read_csv("./data/casoscovid19.csv")
+        data = pd.read_csv(self.csvfilepath)
 
         # replacing blank spaces with '_'
         data.columns = [column.replace(" ", "_") for column in data.columns]
@@ -397,7 +397,7 @@ class CovidData:
         # import pandas as pd
 
         # making data frame from csv file
-        data = pd.read_csv("./data/casoscovid19.csv")
+        data = pd.read_csv(self.csvfilepath)
 
         # replacing blank spaces with '_'
         data.columns = [column.replace(" ", "_") for column in data.columns]
