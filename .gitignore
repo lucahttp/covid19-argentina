@@ -1,3 +1,7 @@
 data/*
 *.db 
 *.csv
+/*.csv
+/*.db
+/*.sql
+/*.tmp

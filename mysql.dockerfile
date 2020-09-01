@@ -4,24 +4,27 @@ FROM mysql
 ENV MYSQL_ROOT_PASSWORD root
 RUN apt update -y
 RUN apt install wget -y
-RUN apt install python -y
-RUN apt install python-pip -y
+RUN apt install python3 -y
+RUN apt install python3-pip -y
+RUN apt install sqlite3 -y
 #COPY scripts/convert2.sh /convert.sh
 #COPY scripts/my.csv /my.csv
 RUN  mkdir  /app/
 #COPY scripts/ /csv2sql/
 #RUN wget https://raw.githubusercontent.com/lukaneco/CSV-to-MySql/master/convert.sh -O /csv2sql/convert.sh
 
-RUN wget https://raw.githubusercontent.com/lukaneco/covid19-argentina/master/main.py -O /app/main.py
-RUN wget https://raw.githubusercontent.com/lukaneco/covid19-argentina/master/requirements.txt -O /app/requirements.txt
+#RUN wget https://raw.githubusercontent.com/lukaneco/covid19-argentina/master/main.py -O /app/main.py
+COPY main.py /app/main.py
+#RUN wget https://raw.githubusercontent.com/lukaneco/covid19-argentina/master/requirements.txt -O /app/requirements.txt
+COPY requirements.txt /app/requirements.txt
 #RUN wget https://github.com/lukaneco/CSV-to-MySql/blob/master/convert.sh -O /csv2sql/convert.sh
 #RUN chmod 777 /csv2sql/convert.sh
-
+RUN wget https://gist.githubusercontent.com/lukaneco/367a14661e7a5fff7bcbc2745c825c7e/raw/0ba7d095e9832bf55fd078fdc7ac9341a5283798/example.sql -O /app/example.sql
 #ADD data /csv2sql/
 #./convert.sh -f example/mycsvfile.csv
 RUN ls /app/
 #ADD scripts /csv2sql/
-RUN pip install -r /app/requirements.txt
+RUN pip3 install -r /app/requirements.txt
 #RUN pip install --no-cache-dir -r requirements.txt
 # copy the content of the local src directory to the working directory
 #RUN python main.py .
@@ -72,5 +75,7 @@ RUN cp /app/my2.sql /docker-entrypoint-initdb.d/
 EXPOSE 3306
 EXPOSE 5000
 
-ENTRYPOINT ["python"]
+ENTRYPOINT ["python3"]
 CMD ["main.py"]
+
+VOLUME [ "/app" ]

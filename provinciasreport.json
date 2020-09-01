@@ -30,178 +30,178 @@
     "data":[
         {
             "Provincia":"Buenos Aires",
-            "Total":577933,
-            "Confirmados":211836,
-            "Recuperados":161677,
-            "Fallecidos":4124
+            "Total":602599,
+            "Confirmados":222784,
+            "Recuperados":169102,
+            "Fallecidos":4513
         },
         {
             "Provincia":"CABA",
-            "Total":229829,
-            "Confirmados":84297,
-            "Recuperados":63124,
-            "Fallecidos":1922
+            "Total":237551,
+            "Confirmados":86926,
+            "Recuperados":64983,
+            "Fallecidos":2018
         },
         {
             "Provincia":"Catamarca",
-            "Total":2782,
-            "Confirmados":62,
+            "Total":2835,
+            "Confirmados":63,
             "Recuperados":58,
             "Fallecidos":0
         },
         {
             "Provincia":"Chaco",
-            "Total":31457,
-            "Confirmados":4861,
-            "Recuperados":4169,
-            "Fallecidos":193
+            "Total":32240,
+            "Confirmados":4966,
+            "Recuperados":4273,
+            "Fallecidos":199
         },
         {
             "Provincia":"Chubut",
-            "Total":4844,
-            "Confirmados":533,
-            "Recuperados":401,
+            "Total":5156,
+            "Confirmados":580,
+            "Recuperados":425,
             "Fallecidos":6
         },
         {
             "Provincia":"Corrientes",
-            "Total":6390,
-            "Confirmados":252,
-            "Recuperados":222,
-            "Fallecidos":4
+            "Total":6664,
+            "Confirmados":260,
+            "Recuperados":227,
+            "Fallecidos":2
         },
         {
             "Provincia":"Córdoba",
-            "Total":46818,
-            "Confirmados":5905,
-            "Recuperados":3960,
-            "Fallecidos":100
+            "Total":48507,
+            "Confirmados":6411,
+            "Recuperados":4268,
+            "Fallecidos":107
         },
         {
             "Provincia":"Entre Ríos",
-            "Total":8924,
-            "Confirmados":2258,
-            "Recuperados":1492,
-            "Fallecidos":28
+            "Total":9538,
+            "Confirmados":2509,
+            "Recuperados":1624,
+            "Fallecidos":31
         },
         {
             "Provincia":"Formosa",
-            "Total":1067,
-            "Confirmados":82,
-            "Recuperados":78,
+            "Total":1079,
+            "Confirmados":83,
+            "Recuperados":80,
             "Fallecidos":1
         },
         {
             "Provincia":"Jujuy",
-            "Total":23036,
-            "Confirmados":6269,
-            "Recuperados":4567,
-            "Fallecidos":174
+            "Total":23894,
+            "Confirmados":6836,
+            "Recuperados":4945,
+            "Fallecidos":196
         },
         {
             "Provincia":"La Pampa",
-            "Total":2257,
-            "Confirmados":195,
-            "Recuperados":174,
-            "Fallecidos":0
+            "Total":2351,
+            "Confirmados":194,
+            "Recuperados":177,
+            "Fallecidos":1
         },
         {
             "Provincia":"La Rioja",
-            "Total":5875,
-            "Confirmados":1040,
-            "Recuperados":723,
-            "Fallecidos":31
+            "Total":6164,
+            "Confirmados":1177,
+            "Recuperados":826,
+            "Fallecidos":47
         },
         {
             "Provincia":"Mendoza",
-            "Total":16767,
-            "Confirmados":4634,
-            "Recuperados":2775,
-            "Fallecidos":106
+            "Total":18233,
+            "Confirmados":5070,
+            "Recuperados":3215,
+            "Fallecidos":113
         },
         {
             "Provincia":"Misiones",
-            "Total":2778,
-            "Confirmados":56,
+            "Total":2879,
+            "Confirmados":59,
             "Recuperados":49,
             "Fallecidos":2
         },
         {
             "Provincia":"Neuquén",
-            "Total":7589,
-            "Confirmados":2278,
-            "Recuperados":1718,
-            "Fallecidos":38
+            "Total":7974,
+            "Confirmados":2415,
+            "Recuperados":1818,
+            "Fallecidos":41
         },
         {
             "Provincia":"Río Negro",
-            "Total":13503,
-            "Confirmados":4703,
-            "Recuperados":3025,
-            "Fallecidos":132
+            "Total":14172,
+            "Confirmados":4938,
+            "Recuperados":3266,
+            "Fallecidos":139
         },
         {
             "Provincia":"SIN ESPECIFICAR",
-            "Total":3919,
-            "Confirmados":1547,
-            "Recuperados":1330,
-            "Fallecidos":7
+            "Total":4036,
+            "Confirmados":1582,
+            "Recuperados":1354,
+            "Fallecidos":8
         },
         {
             "Provincia":"Salta",
-            "Total":5535,
-            "Confirmados":1832,
-            "Recuperados":896,
-            "Fallecidos":29
+            "Total":6372,
+            "Confirmados":2104,
+            "Recuperados":1065,
+            "Fallecidos":32
         },
         {
             "Provincia":"San Juan",
-            "Total":1234,
-            "Confirmados":57,
-            "Recuperados":21,
+            "Total":1320,
+            "Confirmados":109,
+            "Recuperados":23,
             "Fallecidos":0
         },
         {
             "Provincia":"San Luis",
-            "Total":1090,
-            "Confirmados":43,
+            "Total":1102,
+            "Confirmados":40,
             "Recuperados":32,
             "Fallecidos":0
         },
         {
             "Provincia":"Santa Cruz",
-            "Total":4013,
-            "Confirmados":1328,
-            "Recuperados":980,
-            "Fallecidos":10
+            "Total":4325,
+            "Confirmados":1410,
+            "Recuperados":1059,
+            "Fallecidos":12
         },
         {
             "Provincia":"Santa Fe",
-            "Total":34016,
-            "Confirmados":4817,
-            "Recuperados":3228,
-            "Fallecidos":53
+            "Total":35920,
+            "Confirmados":5382,
+            "Recuperados":3646,
+            "Fallecidos":65
         },
         {
             "Provincia":"Santiago del Estero",
-            "Total":8050,
-            "Confirmados":517,
-            "Recuperados":223,
-            "Fallecidos":1
+            "Total":8572,
+            "Confirmados":654,
+            "Recuperados":275,
+            "Fallecidos":4
         },
         {
             "Provincia":"Tierra del Fuego",
-            "Total":5670,
-            "Confirmados":1698,
-            "Recuperados":1313,
-            "Fallecidos":19
+            "Total":5887,
+            "Confirmados":1803,
+            "Recuperados":1351,
+            "Fallecidos":21
         },
         {
             "Provincia":"Tucumán",
-            "Total":19653,
-            "Confirmados":1050,
-            "Recuperados":550,
-            "Fallecidos":6
+            "Total":20635,
+            "Confirmados":1278,
+            "Recuperados":656,
+            "Fallecidos":7
         }
     ]
 }

@@ -1,10 +1,13 @@
+
+SELECT count(*) FROM mydata WHERE (clasificacion_resumen="Confirmado");
+
 SELECT fecha_apertura  AS "Fecha" , residencia_provincia_nombre,
 	 count(*) AS "Cantidad de test",
     sum(case when clasificacion_resumen="Confirmado" then 1 else 0 end) AS Confirmados,
     sum(case when clasificacion LIKE "%No Activo%" then 1 else 0 end) AS Recuperados,
     (sum(case when clasificacion_resumen="Confirmado" then 1 else 0 end)-sum(case when clasificacion LIKE "%No Activo%" then 1 else 0 end))Activos,
     sum(case when clasificacion = "Caso confirmado - Fallecido" then 1 else 0 end) AS Fallecidos
-FROM mydb
+FROM mydata
 GROUP BY fecha_apertura, residencia_provincia_nombre
 ORDER BY "fecha_apertura" DESC,"residencia_provincia_id" ASC,"residencia_departamento_nombre" ASC,"residencia_departamento_nombre" ASC;
 
@@ -17,16 +20,15 @@ SELECT fecha_apertura  AS "Fecha",
     sum(case when clasificacion LIKE "%No Activo%" then 1 else 0 end) AS Recuperados,
     (sum(case when clasificacion_resumen="Confirmado" then 1 else 0 end)-sum(case when clasificacion LIKE "%No Activo%" then 1 else 0 end))Activos,
     sum(case when clasificacion = "Caso confirmado - Fallecido" then 1 else 0 end) AS Fallecidos
-FROM mydb
+FROM mydata
 GROUP BY fecha_apertura
 ORDER BY "fecha_apertura" DESC;
 
-SELECT fecha_apertura, count(*) FROM mydb WHERE (clasificacion_resumen="Confirmado") group by fecha_apertura  ORDER BY "fecha_apertura" DESC;
+SELECT fecha_apertura, count(*) FROM mydata WHERE (clasificacion_resumen="Confirmado") group by fecha_apertura  ORDER BY "fecha_apertura" DESC;
 
 
+SELECT fecha_apertura, count(*) FROM mydata WHERE (clasificacion_resumen="Confirmado") group by fecha_apertura  ORDER BY "fecha_apertura" DESC LIMIT 7;
 
-SELECT fecha_apertura, count(*) FROM mydb WHERE (clasificacion_resumen="Confirmado") group by fecha_apertura  ORDER BY "fecha_apertura" DESC LIMIT 7;
-
-SELECT * FROM mydb
+SELECT * FROM mydata
 WHERE residencia_departamento_nombre LIKE '%Maipu%'
 GROUP BY residencia_departamento_nombre;

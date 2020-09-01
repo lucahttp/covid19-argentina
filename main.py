@@ -1,4 +1,7 @@
-#!/usr/bin/python
+#!/usr/local/bin/python
+#
+# -*- coding: utf-8 -*-
+
 import time
 import os.path
 import datetime
@@ -10,6 +13,35 @@ import os
 from datetime import timedelta
 import requests
 #from multiprocessing import Process
+
+
+
+
+# Excel
+from time import sleep
+import datetime
+
+# C:\Python38\python.exe -m pip install --upgrade pip
+# C:\Python38\python.exe -m pip install openpyxl
+# C:\Python38\python.exe -m pip install pytest
+import pytest
+import time
+import json
+
+#EXCEL
+from openpyxl import load_workbook
+import os
+import sys
+import openpyxl #Connect the library
+from openpyxl import Workbook
+from openpyxl.styles import PatternFill#Connect cell styles
+from openpyxl.workbook import Workbook
+from openpyxl.styles import Font, Fill#Connect styles for text
+from openpyxl.styles import colors#Connect colors for text and cells
+from openpyxl.utils import get_column_letter
+import datetime
+import string
+import numpy
 
 
 # check if db exist
@@ -223,8 +255,7 @@ class CovidData:
 
     def CheckData(self):
         try:
-            result = self.CheckDueDate(self.getLastUpdateOfFile(
-                self.csvfilepath), "1 day at 8 pm")
+            result = self.CheckDueDate(self.getLastUpdateOfFile(self.csvfilepath), "1 day at 8 pm")
             return result
         except FileNotFoundError:
             print("No funciona")
@@ -610,35 +641,71 @@ class CovidData:
         logging.warning(text)
         pass
 
+    def sqldump(self):
+        # Convert file existing_db.db to SQL dump file dump.sql
+        #import sqlite3
+        con = sqlite3.connect(self.dbfilepath)
+        with open('dump.sql', 'w') as f:
+            for line in con.iterdump():
+                f.write('%s\n' % line)
+        #con.close()
+        pass
+    """
+    import MySQLdb
 
+    try:
+        conn = MySQLdb.connect (host = "localhost",
+                                user = "testuser",
+                                passwd = "testpass",
+                                db = "test")
+    except MySQLdb.Error:
+        print "Error %d: %s" % (e.args[0], e.args[1])
+        sys.exit (1)
+
+
+    recon = MySQLdb.connect (host = "localhost",
+                        user = "testuser",
+                        passwd = "testpass",
+                        db = "test")
+    cursor = recon.cursor ()
+
+    cursor.execute ("SELECT VERSION()")
+    row = cursor.fetchone ()
+    print("server version:", row[0])
+
+    cursor.close ()
+    conn.close ()
+    """
+
+    def queryToMysql(self):
+        #https://stackoverflow.com/questions/4408714/execute-sql-file-with-python-mysqldb
+        from os import system
+        USERNAME = "root"
+        PASSWORD = "root"
+        DBNAME = "mydatabase"
+        HOST = "localhost"
+        PORT = 3306
+        FILE = "example.sql"
+        #command = """mysql -u %s -p"%s" --host %s --port %s %s < %s""" %(USERNAME, PASSWORD, HOST, PORT, DBNAME, FILE)
+       
+        #command = """mysql -h 127.0.0.1 -P 3306 -u root -p <database>"""
+
+        command = """mysql -u %s -p"%s" -h %s -P %s %s < %s""" %(USERNAME, PASSWORD, HOST, PORT, DBNAME, FILE)
+       
+        #command = "c:/xampp/mysql/bin/mysql.exe --user=root --password=''  -e 'show databases;'"
+        #system(command)
+        # https://www.cyberciti.biz/faq/mysql-command-to-show-list-of-databases-on-server/
+        # .\mysql.exe -u root -p '' -e 'show databases;'
+        # .\mysql.exe -u your-user-name -p'Your-password'
+        # .\mysql.exe --user=root --password=""  -e 'show databases;'
+        # C:\xampp\mysql\bin\mysql.exe --user=root --password=""  -e 'show databases;'
+        # C:\xampp\mysql\bin\mysql.exe --user=root --password=""  -e 'show databases;'
+        # mysql -p -u root -h 127.0.0.1 test < dump.sql
+        pass
+        
 
 
     def CreateExample(self):
-        from time import sleep
-        import datetime
-
-        # C:\Python38\python.exe -m pip install --upgrade pip
-        # C:\Python38\python.exe -m pip install openpyxl
-        # C:\Python38\python.exe -m pip install pytest
-        import pytest
-        import time
-        import json
-
-        #EXCEL
-        from openpyxl import load_workbook
-        import os
-        import sys
-        import openpyxl #Connect the library
-        from openpyxl import Workbook
-        from openpyxl.styles import PatternFill#Connect cell styles
-        from openpyxl.workbook import Workbook
-        from openpyxl.styles import Font, Fill#Connect styles for text
-        from openpyxl.styles import colors#Connect colors for text and cells
-        from openpyxl.utils import get_column_letter
-        import datetime
-        import string
-
-
 
 
 
@@ -672,9 +739,8 @@ class CovidData:
 
 
         #Styles
-        tabColor_text = Font(size=11, underline='none', color = 'ffffffff', bold=False, italic=False) #what color = colors.RED — color prescribed in styles
-        tabColor_cell = PatternFill(fill_type='solid', start_color='00000000', end_color='00000000')#This code allows you to do design color cells
-
+        tabColor_text = Font(size=11, underline='none', color = 'ffffffff', bold=False, italic=False)
+        tabColor_cell = PatternFill(fill_type='solid', start_color='00000000', end_color='00000000')
 
         wb = Workbook()
         page = wb.active
@@ -789,37 +855,6 @@ class CovidData:
 
 
     def CreateExcelFormated(self,mydataframe):
-        from time import sleep
-        import datetime
-
-        # C:\Python38\python.exe -m pip install --upgrade pip
-        # C:\Python38\python.exe -m pip install openpyxl
-        # C:\Python38\python.exe -m pip install pytest
-        import pytest
-        import time
-        import json
-
-        #EXCEL
-        from openpyxl import load_workbook
-        import os
-        import sys
-        import openpyxl.utils.dataframe as oput #Connect the library
-        import openpyxl #Connect the library
-        from openpyxl import Workbook
-        from openpyxl.styles import PatternFill#Connect cell styles
-        from openpyxl.workbook import Workbook
-        from openpyxl.styles import Font, Fill#Connect styles for text
-        from openpyxl.styles import colors#Connect colors for text and cells
-        from openpyxl.utils import get_column_letter
-        import datetime
-        import string
-
-
-        import numpy
-
-
-
-
         ##########################################################
         ##  Chapter One Creating the excel to fill data
         ##########################################################
@@ -848,8 +883,8 @@ class CovidData:
 
 
         #Styles
-        tabColor_text = Font(size=11, underline='none', color = 'ffffffff', bold=False, italic=False) #what color = colors.RED — color prescribed in styles
-        tabColor_cell = PatternFill(fill_type='solid', start_color='00000000', end_color='00000000')#This code allows you to do design color cells
+        tabColor_text = Font(size=11, underline='none', color = 'ffffffff', bold=False, italic=False)
+        tabColor_cell = PatternFill(fill_type='solid', start_color='00000000', end_color='00000000')
 
 
         wb = Workbook()
@@ -1328,12 +1363,59 @@ def asdasdaasa(file = "index.html"):
     f = open('./view/'+file)
     return f.read()
 
+@app.route('/mysql/dump/', methods=['GET', 'POST'])
+def mysqldump():
+    # https://smirnov-am.github.io/background-jobs-with-flask/
+    thread = Thread(target=mydump)
+    thread.daemon = True
+    thread.start()
+    # return Response(mimetype='application/json', status=200)
+    #data = covidargentina.getCountAllCases()
+    print("Dump")
+    response = app.response_class(
+        response="going to make a dump",
+        # response=data,
+        status=200,
+        mimetype='text/plain'
+    )
+    return response
+def mydump():
+    # time.sleep(1)
+    print("Dump to sql process started")
+    covidargentina.sqldump()
+    print("Dump to sql  process finished")
+    pass
+
+
+
+
+@app.route('/mysql/query/', methods=['GET', 'POST'])
+def mysqlquery():
+    # https://smirnov-am.github.io/background-jobs-with-flask/
+    thread = Thread(target=myquery)
+    thread.daemon = True
+    thread.start()
+    # return Response(mimetype='application/json', status=200)
+    #data = covidargentina.getCountAllCases()
+    response = app.response_class(
+        response="going to make a dump",
+        # response=data,
+        status=200,
+        mimetype='text/plain'
+    )
+    return response
+def myquery():
+    # time.sleep(1)
+    print("Query to sql process started")
+    covidargentina.queryToMysql()
+    print("Query to sql  process finished")
+    pass
 # app.run()
 # https://stackoverflow.com/questions/41105733/limit-ram-usage-to-python-program
-#if __name__ == '__main__':
+if __name__ == '__main__':
     #app.run(port=5000, debug=True, use_reloader=True)
-    #app.run(debug=True, host='0.0.0.0')
-
+    app.run(debug=True, host='0.0.0.0')
+    # docker-compose up --force-recreate --renew-anon-volumes --build
     #app.run(host='127.0.0.1', port=5000, debug=True, use_reloader=True)
 
 

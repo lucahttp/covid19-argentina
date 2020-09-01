@@ -1,0 +1,25 @@
+version: '2'
+
+services:
+    pythonflask:
+        container_name: pythonflask-app
+        restart: always
+        #volumes:
+        #   - './.data/wordpress:/var/www/html/'
+        build:
+            context: ./
+            dockerfile: mysql.dockerfile
+        # image: tiredofit/freepbx
+
+        restart: always
+        volumes:
+        #    - ./app:/app
+            - ./db:/var/lib/mysql
+        environment:
+            - MYSQL_ROOT_PASSWORD=root
+            - MYSQL_DATABASE=mydatabase
+            - MYSQL_USER=admin
+            - MYSQL_PASSWORD=admin
+        ports:
+            - 5000:5000
+            - 3306:3306
